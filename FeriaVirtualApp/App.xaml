@@ -1,0 +1,33 @@
+﻿<Application x:Class="FeriaVirtualApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:FeriaVirtualApp"
+             xmlns:viewModel="clr-namespace:FeriaVirtualApp.ViewModels"
+             xmlns:view="clr-namespace:FeriaVirtualApp.Views"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Themes/TextboxTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:VentasViewModel}">
+                <view:VentasView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ResumenVentasViewModel}">
+                <view:ResumenVentasView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewModel:TransportistaViewModel}">
+                <view:TransportistaView/>
+            </DataTemplate>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

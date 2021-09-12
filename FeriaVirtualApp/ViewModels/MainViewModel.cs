@@ -5,11 +5,13 @@ namespace FeriaVirtualApp.ViewModels
     internal class MainViewModel : ObservableObject
     {
         public RelayCommand HomeViewCommand { get; set; }
+        public RelayCommand UsuariosViewCommand { get; set; }
         public RelayCommand VentasViewCommand { get; set; }
         public RelayCommand ResumenVentasViewCommand { get; set; }
         public RelayCommand TransportistaViewCommand { get; set; }
 
         public HomeViewModel HomeVM { get; set; }
+        public UsuariosViewModel UsuariosVM { get; set; }
         public VentasViewModel VentasVM { get; set; }
         public ResumenVentasViewModel RVVM { get; set; }
         public TransportistaViewModel TransportistaVM { get; set; }
@@ -30,6 +32,7 @@ namespace FeriaVirtualApp.ViewModels
         public MainViewModel()
         {
             HomeVM = new HomeViewModel();
+            UsuariosVM = new UsuariosViewModel();
             VentasVM = new VentasViewModel();
             RVVM = new ResumenVentasViewModel();
             TransportistaVM = new TransportistaViewModel();
@@ -39,6 +42,11 @@ namespace FeriaVirtualApp.ViewModels
             HomeViewCommand = new RelayCommand(o =>
             {
                 CurrentView = HomeVM;
+            });
+
+            UsuariosViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = UsuariosVM;
             });
 
             VentasViewCommand = new RelayCommand(o =>

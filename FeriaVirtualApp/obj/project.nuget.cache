@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "MHUiDds/jWdzJU0tv6ZK1byunEH+radnZjYvqYw+6O6BOTy8791/DAEHBjyWsuMifDYypN0fAFZDjTA2o7cZtQ==",
+  "dgSpecHash": "0Xzaoy9gLcvKcRr+JmDAcOxLJRjyskxcLkPs33AmzdimyeIPfvyOBouVw1XI2WhURs4DALum+Kqvis02RvtdlA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nicolas\\Source\\Repos\\FeriaVirtualAppEscritorio\\FeriaVirtualApp\\FeriaVirtualApp.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Nicolas\\source\\repos\\FeriaVirtualAppEscritorio\\FeriaVirtualApp\\FeriaVirtualApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Nicolas\\.nuget\\packages\\materialdesigncolors\\2.0.1\\materialdesigncolors.2.0.1.nupkg.sha512",
+    "C:\\Users\\Nicolas\\.nuget\\packages\\materialdesignthemes\\4.1.0\\materialdesignthemes.4.1.0.nupkg.sha512"
+  ],
   "logs": []
 }

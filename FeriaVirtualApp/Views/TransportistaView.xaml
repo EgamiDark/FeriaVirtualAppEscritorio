@@ -12,8 +12,8 @@
                    FontSize="28"
                    HorizontalAlignment="left"
                    Margin="0, 0, 0, 20"/>
-        <StackPanel Orientation="Horizontal" Height="393">
-            <Border Width="799">
+        <StackPanel Orientation="Horizontal" Height="600">
+            <Border Width="995">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                         <GradientStop Color="#4eff91" Offset="0.0"/>
@@ -24,7 +24,7 @@
                 <Border.Clip>
                     <RectangleGeometry RadiusX="10"
                                        RadiusY="10"
-                                       Rect="0, 0, 750, 390"/>
+                                       Rect="0, 0, 950, 600"/>
                 </Border.Clip>
                 <Grid>
                     <Button Margin="627,10,74,345" Content="Crear Proceso" />

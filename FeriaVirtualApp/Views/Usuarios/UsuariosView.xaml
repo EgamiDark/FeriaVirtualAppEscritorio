@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="FeriaVirtualApp.Views.Usuarios.UsuariosView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <TextBlock Text="Administrador de Usuarios"
+                   Foreground="White"
+                   FontSize="28"
+                   HorizontalAlignment="left"
+                   Margin="0, 0, 0, 20"/>
+        <StackPanel Orientation="Horizontal" Height="600">
+            <Border Width="995">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#5bc3ff" Offset="0.0"/>
+                        <GradientStop Color="#3AA0FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0, 0, 950, 600"/>
+                </Border.Clip>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="75"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Margin="10,0,64,10">
+                        <Label Content="Buscar: "
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Right"
+                                FontSize="18"
+                               Foreground="White"
+                               FontWeight="Bold"/>
+                        <TextBox x:Name="txtSearch"
+                                 VerticalAlignment="Bottom"
+                                 HorizontalAlignment="Left"
+                                 Width="150"
+                                 KeyUp="txtSearch_KeyUp"
+                                 FontSize="14"/>
+                    </StackPanel>
+
+                    <Button Content="Añadir Usuario"
+                            Grid.Row="0" 
+                            Grid.Column="1"
+                            Margin="352,9,64,9" 
+                            Click="Button_Click"/>
+
+                    <DataGrid x:Name="dgUsuarios"
+                              Grid.Row="1"
+                              Grid.Column="0"
+                              Grid.ColumnSpan="2"
+                              ItemsSource="{Binding Usuarios}" 
+                              AutoGenerateColumns="False" Margin="10,10,64,10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" />
+                            <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" Width="*" />
+                            <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}" Width="*" />
+                            <DataGridTemplateColumn Header="Acción">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button x:Name="btnActualizar" Content="Actualizar" Click="btnActualizar_Click"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Border>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

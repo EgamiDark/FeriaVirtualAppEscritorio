@@ -66,3 +66,10 @@ C:\Users\Nicolas\Source\Repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debu
 C:\Users\Nicolas\Source\Repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debug\net5.0-windows\ref\FeriaVirtualApp.dll
 C:\Users\Nicolas\Source\Repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debug\net5.0-windows\FeriaVirtualApp.pdb
 C:\Users\Nicolas\Source\Repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debug\net5.0-windows\FeriaVirtualApp.genruntimeconfig.cache
+C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\bin\Debug\net5.0-windows\MaterialDesignColors.dll
+C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\bin\Debug\net5.0-windows\MaterialDesignThemes.Wpf.dll
+C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debug\net5.0-windows\FeriaVirtualApp.csproj.CopyComplete
+C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debug\net5.0-windows\Views\Usuarios\CrearUsuarioView.baml
+C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debug\net5.0-windows\Views\Usuarios\CrearUsuarioView.g.cs
+C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debug\net5.0-windows\Views\Usuarios\UsuariosView.g.cs
+C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debug\net5.0-windows\Views\Usuarios\UsuariosView.baml

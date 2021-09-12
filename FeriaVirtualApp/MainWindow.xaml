@@ -6,10 +6,11 @@
         xmlns:local="clr-namespace:FeriaVirtualApp"
         xmlns:viewModel="clr-namespace:FeriaVirtualApp.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1000"
+        Title="MainWindow" Height="800" Width="1200"
         WindowStyle="SingleBorderWindow"
+        ResizeMode="NoResize"
         Background="Black"
-        AllowsTransparency="False">
+        AllowsTransparency="False" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
@@ -17,12 +18,12 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
-                <ColumnDefinition />
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="75"/>
-                <RowDefinition />
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <TextBlock Text="FeriaVirtualApp"
@@ -36,42 +37,49 @@
                 <RadioButton Content="Inicio"
                              Height="50"
                              Foreground="White"
-                             FontSize="14"
+                             FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
                              IsChecked="True"
                              Command="{Binding HomeViewCommand}"/>
 
+                <RadioButton Content="Usuarios"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="18"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding UsuariosViewCommand}"/>
+
                 <RadioButton Content="Ventas"
                              Height="50"
                              Foreground="White"
-                             FontSize="14"
+                             FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding VentasViewCommand}"/>
 
                 <RadioButton Content="Resumen Ventas"
                              Height="50"
                              Foreground="White"
-                             FontSize="14"
+                             FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding ResumenVentasViewCommand}"/>
 
                 <RadioButton Content="Transportistas"
                              Height="50"
                              Foreground="White"
-                             FontSize="14"
+                             FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding TransportistaViewCommand}"/>
 
                 <RadioButton Content="Subastas"
                              Height="50"
                              Foreground="White"
-                             FontSize="14"
+                             FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"/>
 
                 <RadioButton Content="Perfil"
                              Height="50"
                              Foreground="White"
-                             FontSize="14"
+                             FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"/>
             </StackPanel>
 

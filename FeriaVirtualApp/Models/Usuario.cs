@@ -1,4 +1,4 @@
-﻿namespace FeriaVirtualApp.Entidades
+﻿namespace FeriaVirtualApp.Models
 {
     public class Usuario
     {

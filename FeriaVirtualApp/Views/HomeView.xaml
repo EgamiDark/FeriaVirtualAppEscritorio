@@ -12,9 +12,8 @@
                    FontSize="28"
                    HorizontalAlignment="left"
                    Margin="0, 0, 0, 20"/>
-        <StackPanel Orientation="Horizontal">
-            <Border Width="400"
-                    Height="200">
+        <StackPanel Orientation="Horizontal" Height="400">
+            <Border Width="450">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                         <GradientStop Color="#5bc3ff" Offset="0.0"/>
@@ -25,7 +24,7 @@
                 <Border.Clip>
                     <RectangleGeometry RadiusX="10"
                                        RadiusY="10"
-                                       Rect="0, 0, 400, 200"/>
+                                       Rect="0, 0, 450, 400"/>
                 </Border.Clip>
 
                 <Grid>
@@ -43,8 +42,7 @@
                 </Grid>
             </Border>
 
-            <Border Width="200"
-                    Height="200"
+            <Border Width="450" Height="400"
                     CornerRadius="10"
                     Margin="45, 0, 0, 0">
                 <Border.Background>
@@ -56,7 +54,7 @@
             </Border>
         </StackPanel>
 
-        <StackPanel>
+        <StackPanel Orientation="Horizontal" Height="175">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="Margin" Value="15, 0, 0, 0"/>
@@ -69,24 +67,24 @@
                    Margin="0, 0, 0, 10"/>
 
             <StackPanel Orientation="Horizontal">
-                <Border Width="150"
-                        Height="150"
+                <Border Width="125"
+                        Height="125"
                         Background="#844eff"
                         CornerRadius="10"
                         Margin="0"/>
 
-                <Border Width="150"
-                        Height="150"
+                <Border Width="125"
+                        Height="125"
                         Background="#4e99ff"
                         CornerRadius="10"/>
 
-                <Border Width="150"
-                        Height="150"
+                <Border Width="125"
+                        Height="125"
                         Background="#4eff91"
                         CornerRadius="10"/>
 
-                <Border Width="150"
-                        Height="150"
+                <Border Width="125"
+                        Height="125"
                         Background="#ecff4e"
                         CornerRadius="10"/>
             </StackPanel>

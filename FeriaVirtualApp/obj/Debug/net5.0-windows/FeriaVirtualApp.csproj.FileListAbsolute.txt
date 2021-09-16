@@ -73,3 +73,4 @@ C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debu
 C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debug\net5.0-windows\Views\Usuarios\CrearUsuarioView.g.cs
 C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debug\net5.0-windows\Views\Usuarios\UsuariosView.g.cs
 C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debug\net5.0-windows\Views\Usuarios\UsuariosView.baml
+C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\bin\Debug\net5.0-windows\Newtonsoft.Json.dll

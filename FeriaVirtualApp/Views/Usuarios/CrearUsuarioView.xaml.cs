@@ -16,6 +16,7 @@ namespace FeriaVirtualApp.Views.Usuarios
         {
             InitializeComponent();
             UVM = new UsuariosViewModel();
+            DataContext = UVM;
         }
 
         public CrearUsuarioView(Usuario usuario)

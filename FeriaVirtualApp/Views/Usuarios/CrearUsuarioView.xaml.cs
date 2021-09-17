@@ -1,6 +1,6 @@
 ﻿using FeriaVirtualApp.Models;
 using FeriaVirtualApp.ViewModels;
-
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace FeriaVirtualApp.Views.Usuarios
@@ -10,25 +10,32 @@ namespace FeriaVirtualApp.Views.Usuarios
     /// </summary>
     public partial class CrearUsuarioView : Window
     {
-        private readonly UsuariosViewModel UVM;
+        private UsuariosViewModel UVM;
 
         public CrearUsuarioView()
         {
             InitializeComponent();
             UVM = new UsuariosViewModel();
-            DataContext = UVM;
+            SetRoles();
         }
 
         public CrearUsuarioView(Usuario usuario)
         {
             InitializeComponent();
             UVM = new UsuariosViewModel(usuario);
-            DataContext = UVM;
+            SetRoles();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             UVM.OpenView = false;
+        }
+
+        private async Task SetRoles()
+        {
+            UVM = new UsuariosViewModel();
+            UVM.Roles = await UVM.ObtenerRolesAsync();
+            DataContext = UVM;
         }
     }
 }

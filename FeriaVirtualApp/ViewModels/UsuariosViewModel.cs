@@ -1,33 +1,76 @@
 ﻿using System;
 using System.Net;
 using System.Text;
+using System.Linq;
 using System.Net.Http;
 using System.Windows.Input;
 using System.Threading.Tasks;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
-using FeriaVirtualApp.Models;
-using Newtonsoft.Json;
 using FeriaVirtualApp.Core;
-using System.Net.Http.Headers;
+using FeriaVirtualApp.Models;
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel;
 
 namespace FeriaVirtualApp.ViewModels
 {
-    public class UsuariosViewModel
+    public class UsuariosViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private ObservableCollection<Usuario> _usuarios;
+        public ObservableCollection<Usuario> Usuarios
+        {
+            get { return _usuarios; }
+            set { _usuarios = value; }
+        }
+
+        private ObservableCollection<Rol> _roles;
+        public ObservableCollection<Rol> Roles
+        {
+            get { return _roles; }
+            set { _roles = value; }
+        }
+
+        private Usuario _usuario;
+        public Usuario Usuario
+        {
+            get { return _usuario; }
+            set
+            {
+                if (_usuario != null)
+                {
+                    _usuario = value;
+                    OnPropertyChanged(nameof(Usuario));
+                }
+            }
+        }
+
+        private Rol _rol;
+        public Rol Rol
+        {
+            get { return _rol; }
+            set { _rol = value; }
+        }
+
         
-        public List<Usuario> Usuarios { get; set; }
-        public Usuario Usuario { get; set; }
+
         public bool OpenView { get; set; }
 
         private ICommand _guardarUsuario;
         public ICommand GuardarUsuario => _guardarUsuario ??= new CommandHandler(async () =>
-                    await GuAcUsuario(Usuario), true);
+                    await GuAcUsuario(), true);
 
         public UsuariosViewModel()
         {
-            Usuario = null;
-            Usuarios = new List<Usuario>
+            Usuario = new();
+            _usuarios = new ObservableCollection<Usuario>
             {
                 new Usuario{ IdUsuario = 1, Nombre = "Nicolas", Apellidos = "Cortes Azua", Direccion = "AAaaaa"},
                 new Usuario{ IdUsuario = 2, Nombre = "Matias", Apellidos = "San Martin", Direccion = "AAaaaa"},
@@ -54,18 +97,32 @@ namespace FeriaVirtualApp.ViewModels
         // Metodo para guardar y actualizar usuario
         // Gu => Guardar
         // Ac => Actualizar
-        public static async Task<List<Rol>> ObtenerRoles()
+        public async Task<ObservableCollection<Rol>> ObtenerRolesAsync()
         {
-            HttpClient client = new();
-            List<Rol> rolesFromApi = new();
+            ObservableCollection<Rol> rolesFromApi = new();
+            string url = "http://localhost:5000/api/auth/rol";
 
             try
             {
-                HttpWebRequest myReq = (HttpWebRequest)WebRequest.Create("http://10.0.2.2:5000/api/auth/rol");
-                WebResponse myResponse = myReq.GetResponse();
-                HttpResponseMessage response = await client.GetAsync("http://10.0.2.2:5000/api/auth/rol");
-                HttpContent content = response.Content;
+                HttpClient client = new();
+                HttpResponseMessage res = await client.GetAsync(url);
+                HttpContent content = res.Content;
                 string data = await content.ReadAsStringAsync();
+                JObject dataObj = JObject.Parse(data);
+
+                JToken rows = dataObj["rows"];
+                int length = rows.Count<object>();
+
+                for (int i = 0; i < length; i++)
+                {
+                    Rol rol = new()
+                    {
+                        IdRol = int.Parse(rows[i][0].ToString()),
+                        Descripcion = rows[i][1].ToString()
+                    };
+
+                    rolesFromApi.Add(rol);
+                }
             }
             catch (Exception ex)
             {
@@ -78,23 +135,19 @@ namespace FeriaVirtualApp.ViewModels
         // Metodo para guardar y actualizar usuario
         // Gu => Guardar
         // Ac => Actualizar
-        public static async Task GuAcUsuario(Usuario usuario)
+        private async Task GuAcUsuario()
         {
-            List<Rol> roles = new(await ObtenerRoles());
             HttpClient client = new();
             StringContent data;
-            HttpResponseMessage response = new();
-            HttpStatusCode codeStatus = new();
-            string json = "";
 
             try
             {
-                if (usuario != null)
+                if (Usuario != null)
                 {
-                    json = JsonConvert.SerializeObject(usuario);
+                    string json = JsonConvert.SerializeObject(_usuario);
                     data = new(json, Encoding.UTF8, "application/json");
-                    response = await client.PostAsync("http://localhost:5000/api/auth/registro", data);
-                    codeStatus = response.StatusCode;
+                    HttpResponseMessage response = await client.PostAsync("http://localhost:5000/api/auth/registro", data);
+                    HttpStatusCode codeStatus = response.StatusCode;
                 }
             }
             catch (Exception ex)

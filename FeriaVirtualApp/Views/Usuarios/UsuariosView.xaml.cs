@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace FeriaVirtualApp.Views.Usuarios
 {
@@ -13,12 +14,13 @@ namespace FeriaVirtualApp.Views.Usuarios
     /// </summary>
     public partial class UsuariosView : UserControl
     {
-        private readonly UsuariosViewModel UVM;
+        private UsuariosViewModel UVM;
 
         public UsuariosView()
         {
             InitializeComponent();
             UVM = new UsuariosViewModel();
+            SetValues();
         }
 
         private void txtSearch_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
@@ -45,15 +47,17 @@ namespace FeriaVirtualApp.Views.Usuarios
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
             Usuario usuario = dgUsuarios.SelectedItem as Usuario;
-            UsuariosViewModel UsuarioVM = new(usuario);
 
             CrearUsuarioView crearUsuarioView = new(usuario);
 
-            if (UsuarioVM.OpenView == false)
-            {
-                crearUsuarioView.Show();
-                UsuarioVM.OpenView = true;
-            }
+            crearUsuarioView.Show();
+        }
+
+        private async Task SetValues()
+        {
+            UVM = new UsuariosViewModel();
+            UVM.Usuarios = await UVM.ObtenerUsuariosAsync();
+            DataContext = UVM;
         }
     }
 }

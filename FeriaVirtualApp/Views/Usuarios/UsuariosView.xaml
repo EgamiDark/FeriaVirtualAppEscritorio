@@ -31,7 +31,7 @@
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="75"/>
+                        <RowDefinition Height="65"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
@@ -56,7 +56,8 @@
                     <Button Content="Añadir Usuario"
                             Grid.Row="0" 
                             Grid.Column="1"
-                            Margin="352,9,64,9" 
+                            Margin="352,9,64,9"
+                            Height="45"
                             Click="Button_Click"/>
 
                     <DataGrid x:Name="dgUsuarios"
@@ -64,11 +65,15 @@
                               Grid.Column="0"
                               Grid.ColumnSpan="2"
                               ItemsSource="{Binding Usuarios}" 
-                              AutoGenerateColumns="False" Margin="10,10,64,10">
+                              AutoGenerateColumns="False" 
+                              Margin="10,10,64,10"
+                              IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" />
-                            <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" Width="*" />
-                            <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}" Width="*" />
+                            <DataGridTextColumn Header="Rut" Binding="{Binding Rut}" FontSize="16" Width="*" />
+                            <DataGridTextColumn Header="Email" Binding="{Binding Email}" FontSize="16" Width="*" />
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" FontSize="16" Width="*" />
+                            <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" FontSize="16" Width="*" />
+                            <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}" FontSize="16" Width="*" />
                             <DataGridTemplateColumn Header="Acción">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>

@@ -3,11 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:validations="clr-namespace:FeriaVirtualApp.Validations"
         mc:Ignorable="d" 
         Height="500" Width="600"
         ResizeMode="NoResize"
         WindowStyle="SingleBorderWindow"
-        Closing="Window_Closing"
         Background="#272537" WindowStartupLocation="CenterScreen">
     <Border >
         <Border.Background>
@@ -33,7 +33,8 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
-                <RowDefinition Height="150"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="0"
@@ -41,74 +42,144 @@
                        Grid.ColumnSpan="2"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center">
-                <TextBlock Text="Ingresar Usuario"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       Foreground="White"
-                       FontSize="30"
-                       Margin="10"
-                       TextDecorations="Underline"
-                       FontWeight="Bold"/>
+                <TextBlock x:Name="txtTitulo"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Foreground="White"
+                           FontSize="30"
+                           Margin="10"
+                           TextDecorations="Underline"
+                           FontWeight="Bold"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" Margin="10" 
                         Grid.Row="1" Grid.Column="0">
                 <Label Content="Rut: " FontSize="18" Width="40" Height="30" Foreground="White"/>
-                <TextBox Text="{Binding Usuario.Rut, UpdateSourceTrigger=PropertyChanged}" FontSize="14" Width="100" Height="25" Foreground="White"/>
+                <TextBox FontSize="16" Width="150" Height="30" Foreground="White" x:Name="txtRut">
+                    <TextBox.Text>
+                        <Binding Path="Rut" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validations:RutValidationRule
+                                    ErrorMessage="Ingrese un formato correcto para el rut"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="10" 
                         Grid.Row="1" Grid.Column="1">
                 <Label Content="Nombre: " FontSize="18" Width="80" Height="30" Foreground="White"/>
-                <TextBox Text="{Binding Usuario.Nombre}" FontSize="14" Width="100" Height="25" Foreground="White"/>
+                <TextBox FontSize="16" Width="150" Height="30" Foreground="White" x:Name="txtNombre">
+                    <TextBox.Text>
+                        <Binding Path="Nombre" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validations:StringRangeValidationRule MinimumLength="3" MaximumLength="100"
+                                    ErrorMessage="El largo del campo es mínimo 3 y máximo 100 caracteres"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="10" 
                         Grid.Row="2" Grid.Column="0">
                 <Label Content="Apellidos: " FontSize="18" Width="90" Height="30" Foreground="White"/>
-                <TextBox Text="{Binding Usuario.Apellidos}" FontSize="14" Width="100" Height="25" Foreground="White"/>
+                <TextBox FontSize="16" Width="150" Height="30" Foreground="White" x:Name="txtApellidos">
+                    <TextBox.Text>
+                        <Binding Path="Apellidos" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validations:StringRangeValidationRule MinimumLength="3" MaximumLength="100"
+                                    ErrorMessage="El largo del campo es mínimo 3 y máximo 100 caracteres"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
             </StackPanel>
-            
+
             <StackPanel Orientation="Horizontal" Margin="10" 
                         Grid.Row="2" Grid.Column="1">
-                <Label Content="Contraseña: " FontSize="18" Width="110" Height="30" Foreground="White"/>
-                <TextBox Text="{Binding Usuario.Contrasenia}" FontSize="14" Width="100" Height="25" Foreground="White"/>
+                <Label Content="Email: " FontSize="18" Width="60" Height="30" Foreground="White"/>
+                <TextBox FontSize="16" Width="150" Height="30" Foreground="White" x:Name="txtEmail">
+                    <TextBox.Text>
+                        <Binding Path="Email" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validations:EmailValidationRule
+                                    ErrorMessage="Ingrese un email con formato valido"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="10" 
                         Grid.Row="3" Grid.Column="0">
-                <Label Content="Activo: " FontSize="18" Width="70" Height="30" Foreground="White"/>
-                <CheckBox  Width="100" Height="25" IsChecked="True"/>
+                <Label Content="Contraseña: " FontSize="18" Width="110" Height="30" Foreground="White"/>
+                <TextBox FontSize="16" Width="150" Height="30" Foreground="White" x:Name="txtContra">
+                    <TextBox.Text>
+                        <Binding Path="Contrasenia" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validations:StringRangeValidationRule MinimumLength="3" MaximumLength="100"
+                                    ErrorMessage="El largo del campo es mínimo 3 y máximo 100 caracteres"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>                
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="10" 
                         Grid.Row="3" Grid.Column="1">
+                <Label Content="Activo: " FontSize="18" Width="70" Height="30" Foreground="White"/>
+                <CheckBox  Width="150" Height="30" IsChecked="{Binding Actividad}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10" 
+                        Grid.Row="4" Grid.Column="0">
                 <Label Content="Dirección: " FontSize="18" Width="90" Height="30" Foreground="White"/>
-                <TextBox Text="{Binding Usuario.Direccion}" FontSize="14" Width="100" Height="25" Foreground="White"/>
+                <TextBox FontSize="16" Width="150" Height="30" Foreground="White" x:Name="txtDireccion">
+                    <TextBox.Text>
+                        <Binding Path="Direccion" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validations:StringRangeValidationRule MinimumLength="3" MaximumLength="100"
+                                    ErrorMessage="El largo del campo es mínimo 3 y máximo 100 caracteres"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
             </StackPanel>
 
             <!-- Tercera fila -->
             <StackPanel Orientation="Horizontal" Margin="10" 
-                        Grid.Row="4" Grid.Column="0">
+                        Grid.Row="4" Grid.Column="1">
                 <Label Content="Telefono: " FontSize="18" Width="80" Height="30" Foreground="White"/>
-                <TextBox Text="{Binding Usuario.Telefono}" FontSize="14" Width="100" Height="25" Foreground="White"/>
+                <TextBox FontSize="16" Width="150" Height="30" Foreground="White" x:Name="txtTelefono">
+                    <TextBox.Text>
+                        <Binding Path="Telefono" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validations:StringRangeValidationRule MinimumLength="3" MaximumLength="100"
+                                    ErrorMessage="El largo del campo es mínimo 3 y máximo 100 caracteres"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="10" 
-                        Grid.Row="4" Grid.Column="1">
+                        Grid.Row="5" Grid.Column="0">
                 <Label Content="Rol: " FontSize="18" Width="40" Height="30" Foreground="White"/>
-                <ComboBox Width="125" Height="25" 
+                <ComboBox Width="125" Height="30" 
                           ItemsSource="{Binding Path=Roles}"
-                          SelectedItem="{Binding Path=Rol}"  
+                          SelectedItem="{Binding Path=Rol}"
+                          SelectedIndex="{Binding IdRol}"
                           DisplayMemberPath="Descripcion">
                 </ComboBox>
             </StackPanel>
 
-            <!-- Cuarta fila -->
-            <!-- Tercera fila -->
             <StackPanel Orientation="Horizontal" Margin="10" 
-                        Grid.Row="5" Grid.Column="1">
-                <Button Content="Guardar Usuario" Command="{Binding GuardarUsuario}"/>
+                        Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                        HorizontalAlignment="Center">
+                <Button x:Name="btnGuardar"                        
+                        Click="btnGuardar_Click"/>
             </StackPanel>
         </Grid>
     </Border>

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\App.xaml
-91146887192
+12844170420
 
-231398248858
+30-94735398
 196-1749360994
-MainWindow.xaml;Themes\MenuButtonTheme.xaml;Themes\TextboxTheme.xaml;Views\HomeView.xaml;Views\ResumenVentasView.xaml;Views\TransportistaView.xaml;Views\Usuarios\CrearUsuarioView.xaml;Views\Usuarios\UsuariosView.xaml;Views\VentasView.xaml;
+MainWindow.xaml;Themes\MenuButtonTheme.xaml;Themes\TextboxTheme.xaml;Views\HomeView.xaml;Views\Productos\CrearProductoView.xaml;Views\Productos\ProductosView.xaml;Views\Reportes\ReportesView.xaml;Views\Subastas\SubastasView.xaml;Views\Transportistas\TransportistasView.xaml;Views\Usuarios\CrearUsuarioView.xaml;Views\Usuarios\UsuariosView.xaml;Views\Ventas\VentasView.xaml;
 
 False
 

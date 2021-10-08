@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FeriaVirtualApp.Views
+namespace FeriaVirtualApp.Views.Reportes
 {
     /// <summary>
-    /// Interaction logic for ResumenVentasView.xaml
+    /// Interaction logic for ReportesView.xaml
     /// </summary>
-    public partial class ResumenVentasView : UserControl
+    public partial class ReportesView : UserControl
     {
-        public ResumenVentasView()
+        public ReportesView()
         {
             InitializeComponent();
         }

@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FeriaVirtualApp"
         xmlns:viewModel="clr-namespace:FeriaVirtualApp.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1200"
@@ -49,6 +48,13 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding UsuariosViewCommand}"/>
 
+                <RadioButton Content="Productos"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="18"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding ProductosViewCommand}"/>
+
                 <RadioButton Content="Ventas"
                              Height="50"
                              Foreground="White"
@@ -56,12 +62,12 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding VentasViewCommand}"/>
 
-                <RadioButton Content="Resumen Ventas"
+                <RadioButton Content="Reportes"
                              Height="50"
                              Foreground="White"
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding ResumenVentasViewCommand}"/>
+                             Command="{Binding ReportesViewCommand}"/>
 
                 <RadioButton Content="Transportistas"
                              Height="50"
@@ -74,13 +80,8 @@
                              Height="50"
                              Foreground="White"
                              FontSize="18"
-                             Style="{StaticResource MenuButtonTheme}"/>
-
-                <RadioButton Content="Perfil"
-                             Height="50"
-                             Foreground="White"
-                             FontSize="18"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding SubastasViewCommand}"/>
             </StackPanel>
 
             <TextBox Width="250"

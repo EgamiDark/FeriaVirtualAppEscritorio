@@ -167,8 +167,6 @@ namespace FeriaVirtualApp.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public bool OpenView { get; set; }
-
         private ICommand _guardarUsuario;
         public ICommand GuardarUsuario => _guardarUsuario ??= new CommandHandler(async () =>
                     await GuAcUsuario(), true);
@@ -176,7 +174,6 @@ namespace FeriaVirtualApp.ViewModels
         public UsuariosViewModel()
         {
             Usuario = new();
-            OpenView = false;
         }
 
         public UsuariosViewModel(Usuario upUsuario)
@@ -207,28 +204,27 @@ namespace FeriaVirtualApp.ViewModels
         // Ac => Actualizar
         public async Task GuAcUsuario()
         {
-            HttpClient client = new();
             StringContent data;
-
             Usuario usuario = new();
-
-            if (IdUsuario > 0)
-            {
-                usuario.IdUsuario = IdUsuario;
-            }
-
-            usuario.Rut = Rut;
-            usuario.Nombre = Nombre;
-            usuario.Apellidos = Apellidos;
-            usuario.Email = Email;
-            usuario.Contrasenia = Contrasenia;
-            usuario.Actividad = Actividad;
-            usuario.Direccion = Direccion;
-            usuario.Telefono = Telefono;
-            usuario.IdRol = Rol.IdRol;
+            HttpClient client = new();
 
             try
             {
+                if (IdUsuario > 0)
+                {
+                    usuario.IdUsuario = IdUsuario;
+                }
+
+                usuario.Rut = Rut;
+                usuario.Nombre = Nombre;
+                usuario.Apellidos = Apellidos;
+                usuario.Email = Email;
+                usuario.Contrasenia = Contrasenia;
+                usuario.Actividad = Actividad;
+                usuario.Direccion = Direccion;
+                usuario.Telefono = Telefono;
+                usuario.IdRol = Rol.IdRol;
+
                 if (usuario != null)
                 {
                     if (usuario.IdUsuario > 0)

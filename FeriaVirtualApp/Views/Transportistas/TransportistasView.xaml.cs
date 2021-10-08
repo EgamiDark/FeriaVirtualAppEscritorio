@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FeriaVirtualApp.Views
+namespace FeriaVirtualApp.Views.Transportistas
 {
     /// <summary>
-    /// Interaction logic for TransportistaView.xaml
+    /// Interaction logic for TransportistasView.xaml
     /// </summary>
-    public partial class TransportistaView : UserControl
+    public partial class TransportistasView : UserControl
     {
-        public TransportistaView()
+        public TransportistasView()
         {
             InitializeComponent();
         }

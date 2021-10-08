@@ -10,10 +10,19 @@
     <Compile Update="Views\HomeView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\ResumenVentasView.xaml.cs">
+    <Compile Update="Views\Productos\CrearProductoView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\TransportistaView.xaml.cs">
+    <Compile Update="Views\Productos\ProductosView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Reportes\ReportesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Subastas\SubastasView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Transportistas\TransportistasView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Usuarios\UsuariosView.xaml.cs">
@@ -22,7 +31,7 @@
     <Compile Update="Views\Usuarios\CrearUsuarioView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\VentasView.xaml.cs">
+    <Compile Update="Views\Ventas\VentasView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -39,10 +48,19 @@
     <Page Update="Views\HomeView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\ResumenVentasView.xaml">
+    <Page Update="Views\Productos\CrearProductoView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\TransportistaView.xaml">
+    <Page Update="Views\Productos\ProductosView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Reportes\ReportesView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Subastas\SubastasView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Transportistas\TransportistasView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Usuarios\UsuariosView.xaml">
@@ -51,7 +69,7 @@
     <Page Update="Views\Usuarios\CrearUsuarioView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\VentasView.xaml">
+    <Page Update="Views\Ventas\VentasView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

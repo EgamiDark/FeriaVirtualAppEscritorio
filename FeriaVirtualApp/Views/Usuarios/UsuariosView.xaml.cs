@@ -34,14 +34,8 @@ namespace FeriaVirtualApp.Views.Usuarios
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            UsuariosViewModel UsuariosVM = new();
             CrearUsuarioView crearUsuarioView = new();
-
-            if (UsuariosVM.OpenView == false)
-            {
-                crearUsuarioView.Show();
-                UsuariosVM.OpenView = true;
-            }
+            crearUsuarioView.ShowDialog();
         }
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
@@ -50,7 +44,7 @@ namespace FeriaVirtualApp.Views.Usuarios
 
             CrearUsuarioView crearUsuarioView = new(usuario);
 
-            crearUsuarioView.Show();
+            crearUsuarioView.ShowDialog();
         }
 
         private async Task SetValues()

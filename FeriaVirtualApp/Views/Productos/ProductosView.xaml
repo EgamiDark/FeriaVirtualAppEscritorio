@@ -79,7 +79,6 @@
                               IsReadOnly="True">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" FontSize="16" Width="*" />
-                            <DataGridTextColumn Header="Stock" Binding="{Binding Stock}" FontSize="16" Width="*" />
                             <DataGridTextColumn Header="Activo" Binding="{Binding IsActive}" FontSize="16" Width="*" />
                             <DataGridTemplateColumn Header="Acción">
                                 <DataGridTemplateColumn.CellTemplate>

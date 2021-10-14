@@ -68,7 +68,7 @@ namespace FeriaVirtualApp.Views.Subastas {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/FeriaVirtualApp;V1.0.0.0;component/views/subastas/subastasview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/FeriaVirtualApp;component/views/subastas/subastasview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Subastas\SubastasView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -27,7 +27,7 @@ namespace FeriaVirtualApp.Views.Productos
         private async Task SetValues()
         {
             PVM = new ProductosViewModel();
-            PVM.Productos = await PVM.ObtenerUsuariosAsync();
+            PVM.Productos = await PVM.ObtenerProdctosAsync();
             DataContext = PVM;
         }
 

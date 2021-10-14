@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net;
+using System.Text;
 using System.Linq;
 using System.Net.Http;
 using System.ComponentModel;
@@ -9,8 +11,6 @@ using FeriaVirtualApp.Models;
 
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using System.Text;
-using System.Net;
 
 namespace FeriaVirtualApp.ViewModels
 {
@@ -42,14 +42,14 @@ namespace FeriaVirtualApp.ViewModels
             }
         }
 
-        private int _stock;
-        public int Stock
+        private byte[] _imagen;
+        public byte[] Imagen
         {
-            get => _stock;
+            get => _imagen;
             set
             {
-                _stock = value;
-                OnPropertyChanged(nameof(Stock));
+                _imagen = value;
+                OnPropertyChanged(nameof(Imagen));
             }
         }
 
@@ -79,7 +79,7 @@ namespace FeriaVirtualApp.ViewModels
                 {
                     IdProducto = upProducto.IdProducto;
                     Nombre = upProducto.Nombre;
-                    Stock = upProducto.Stock;
+                    Imagen = upProducto.Imagen;
                     IsActive = upProducto.IsActive;
                 }
             }
@@ -89,7 +89,7 @@ namespace FeriaVirtualApp.ViewModels
             }
         }
 
-        public async Task<ObservableCollection<Producto>> ObtenerUsuariosAsync()
+        public async Task<ObservableCollection<Producto>> ObtenerProdctosAsync()
         {
             ObservableCollection<Producto> usuariosFromApi = new();
             string url = "http://localhost:5000/api/producto/obtener/todos";
@@ -109,14 +109,17 @@ namespace FeriaVirtualApp.ViewModels
                 for (int i = 0; i < length; i++)
                 {
                     // Convierte la actividad de string a booleano
-                    actividad = rows[i][3].ToString() == "1";
+                    actividad = rows[i][2].ToString() == "1";
+
+                    var image = rows[i][3].ToString();
+                    byte[] bytes = Encoding.ASCII.GetBytes(image);
 
                     Producto producto = new()
                     {
                         IdProducto = int.Parse(rows[i][0].ToString()),
                         Nombre = rows[i][1].ToString(),
-                        Stock = int.Parse(rows[i][2].ToString()),
-                        IsActive = actividad
+                        IsActive = actividad,
+                        Imagen = bytes
                     };
 
                     usuariosFromApi.Add(producto);
@@ -144,7 +147,7 @@ namespace FeriaVirtualApp.ViewModels
                 }
 
                 producto.Nombre = Nombre;
-                producto.Stock = Stock;
+                producto.Imagen = Imagen;
                 producto.IsActive = IsActive;
 
                 if (producto != null)

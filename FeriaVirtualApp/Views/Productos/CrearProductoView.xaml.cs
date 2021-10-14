@@ -1,20 +1,14 @@
 ﻿using FeriaVirtualApp.Models;
 using FeriaVirtualApp.ViewModels;
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
+using Microsoft.Win32;
+using System.Windows.Media;
 
 namespace FeriaVirtualApp.Views.Productos
 {
@@ -39,6 +33,21 @@ namespace FeriaVirtualApp.Views.Productos
             InitializeComponent();
             txtTitulo.Text = "Actualizar Producto";
             btnGuardar.Content = "Actualizar";
+
+            try
+            {
+                BitmapImage bi = new();
+                bi.BeginInit();
+                bi.StreamSource = new MemoryStream(producto.Imagen);
+                bi.EndInit();
+
+                ImgProducto.Source = bi;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             PVM = new ProductosViewModel(producto);
             DataContext = PVM;
         }
@@ -48,25 +57,56 @@ namespace FeriaVirtualApp.Views.Productos
             ForceValidation();
             if (!Validation.GetHasError(txtNombre))
             {
-                if (!Validation.GetHasError(txtStock))
-                {
-                    await PVM.GuAcProducto();
-                    MessageBox.Show("Usuario guardado!");
-                    Close();
-                }
+                PVM.Imagen = ObtenerByteImagen();
+                await PVM.GuAcProducto();
+                MessageBox.Show("Producto guardado!");
+                Close();
             }
         }
 
         private void ForceValidation()
         {
             txtNombre.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-            txtStock.GetBindingExpression(TextBox.TextProperty).UpdateSource();
         }
 
-        private void txtStock_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void BtnImagen_Click(object sender, RoutedEventArgs e)
         {
-            Regex regexSoloNumeros = new Regex("[^0-9]+");
-            e.Handled = regexSoloNumeros.IsMatch(e.Text);
+            OpenFileDialog openFileDialog = new();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string imagePath = @"" + openFileDialog.FileName;
+
+                byte[] binaryData = ObtenerByteRuta(imagePath);
+
+                BitmapImage bi = new();
+                bi.BeginInit();
+                bi.StreamSource = new MemoryStream(binaryData);
+                bi.EndInit();
+
+                ImgProducto.Source = bi;
+            }
+        }
+
+        protected static byte[] ObtenerByteRuta(string imgPath)
+        {
+            byte[] imageBytes = File.ReadAllBytes(imgPath);
+            return imageBytes;
+        }
+
+        public byte[] ObtenerByteImagen()
+        {
+            byte[] arr;
+
+            using (MemoryStream ms = new())
+            {
+                BitmapImage bmp = ImgProducto.Source as BitmapImage;
+                JpegBitmapEncoder encoder = new();
+                encoder.Frames.Add(BitmapFrame.Create(bmp));
+                encoder.Save(ms);
+                arr = ms.ToArray();
+            }
+
+            return arr;
         }
     }
 }

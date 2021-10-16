@@ -112,7 +112,7 @@ namespace FeriaVirtualApp.ViewModels
                     // Convierte la actividad de string a booleano
                     actividad = rows[i][2].ToString() == "1";
 
-                    byte[] image = Convert.FromBase64String(img.ToString());
+                    byte[] image = Convert.FromBase64String(img[i].ToString());
                     
                     Producto producto = new()
                     {

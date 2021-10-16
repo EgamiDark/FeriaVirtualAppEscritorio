@@ -105,7 +105,6 @@ namespace FeriaVirtualApp.Views.Productos
                 encoder.Save(ms);
                 arr = ms.ToArray();
             }
-            MessageBox.Show(arr.ToString());
             return arr;
         }
     }

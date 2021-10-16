@@ -104,6 +104,7 @@ namespace FeriaVirtualApp.ViewModels
                 JObject dataObj = JObject.Parse(data);
 
                 JToken rows = dataObj["rows"];
+                JToken img = dataObj["img"];
                 int length = rows.Count<object>();
 
                 for (int i = 0; i < length; i++)
@@ -111,15 +112,14 @@ namespace FeriaVirtualApp.ViewModels
                     // Convierte la actividad de string a booleano
                     actividad = rows[i][2].ToString() == "1";
 
-                    var image = rows[i][3].ToString();
-                    byte[] bytes = Encoding.ASCII.GetBytes(image);
-
+                    byte[] image = Convert.FromBase64String(img.ToString());
+                    
                     Producto producto = new()
                     {
                         IdProducto = int.Parse(rows[i][0].ToString()),
                         Nombre = rows[i][1].ToString(),
                         IsActive = actividad,
-                        Imagen = bytes
+                        Imagen = image
                     };
 
                     usuariosFromApi.Add(producto);

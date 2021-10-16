@@ -128,25 +128,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nicolas\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\matig\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nicolas\\source\\repos\\FeriaVirtualAppEscritorio\\FeriaVirtualApp\\FeriaVirtualApp.csproj",
+      "projectUniqueName": "C:\\Users\\matig\\Documents\\GitHub\\FeriaVirtualAppEscritorio\\FeriaVirtualApp\\FeriaVirtualApp.csproj",
       "projectName": "FeriaVirtualApp",
-      "projectPath": "C:\\Users\\Nicolas\\source\\repos\\FeriaVirtualAppEscritorio\\FeriaVirtualApp\\FeriaVirtualApp.csproj",
-      "packagesPath": "C:\\Users\\Nicolas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nicolas\\source\\repos\\FeriaVirtualAppEscritorio\\FeriaVirtualApp\\obj\\",
+      "projectPath": "C:\\Users\\matig\\Documents\\GitHub\\FeriaVirtualAppEscritorio\\FeriaVirtualApp\\FeriaVirtualApp.csproj",
+      "packagesPath": "C:\\Users\\matig\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\matig\\Documents\\GitHub\\FeriaVirtualAppEscritorio\\FeriaVirtualApp\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Nicolas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\matig\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0-windows7.0"
@@ -198,7 +193,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

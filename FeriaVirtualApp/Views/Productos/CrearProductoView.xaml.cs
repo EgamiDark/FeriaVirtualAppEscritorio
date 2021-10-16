@@ -26,6 +26,7 @@ namespace FeriaVirtualApp.Views.Productos
             btnGuardar.Content = "Ingresar";
             PVM = new ProductosViewModel();
             DataContext = PVM;
+
         }
 
         public CrearProductoView(Producto producto)
@@ -77,7 +78,6 @@ namespace FeriaVirtualApp.Views.Productos
                 string imagePath = @"" + openFileDialog.FileName;
 
                 byte[] binaryData = ObtenerByteRuta(imagePath);
-
                 BitmapImage bi = new();
                 bi.BeginInit();
                 bi.StreamSource = new MemoryStream(binaryData);
@@ -105,7 +105,7 @@ namespace FeriaVirtualApp.Views.Productos
                 encoder.Save(ms);
                 arr = ms.ToArray();
             }
-
+            MessageBox.Show(arr.ToString());
             return arr;
         }
     }

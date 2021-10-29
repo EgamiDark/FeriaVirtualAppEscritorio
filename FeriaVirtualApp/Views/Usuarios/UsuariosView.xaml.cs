@@ -36,6 +36,13 @@ namespace FeriaVirtualApp.Views.Usuarios
         {
             CrearUsuarioView crearUsuarioView = new();
             crearUsuarioView.ShowDialog();
+
+            crearUsuarioView.Closing += (o, s) =>
+            {
+                MessageBox.Show("Producto agreado: " + s);
+            };
+
+            SetValues();
         }
 
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
@@ -45,6 +52,13 @@ namespace FeriaVirtualApp.Views.Usuarios
             CrearUsuarioView crearUsuarioView = new(usuario);
 
             crearUsuarioView.ShowDialog();
+
+            crearUsuarioView.Closing += (o, s) =>
+            {
+                MessageBox.Show("Producto agreado: " + s);
+            };
+
+            SetValues();
         }
 
         private async Task SetValues()

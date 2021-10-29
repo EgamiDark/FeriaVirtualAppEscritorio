@@ -14,11 +14,20 @@ using Newtonsoft.Json;
 
 namespace FeriaVirtualApp.ViewModels
 {
-    public class ProductosViewModel: INotifyPropertyChanged
+    public class ProductosViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ObservableCollection<Producto> Productos { get; set; }
+        private ObservableCollection<Producto> _productos;
+        public ObservableCollection<Producto> Productos
+        {
+            get => _productos;
+            set
+            {
+                _productos = value;
+                OnPropertyChanged(nameof(Productos));
+            }
+        }
 
         private int _idProducto;
         public int IdProducto
@@ -69,9 +78,12 @@ namespace FeriaVirtualApp.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public ProductosViewModel() { }
+        public ProductosViewModel()
+        {
+            SetProductos();
+        }
 
-        public ProductosViewModel(Producto upProducto) 
+        public ProductosViewModel(Producto upProducto)
         {
             try
             {
@@ -82,6 +94,8 @@ namespace FeriaVirtualApp.ViewModels
                     Imagen = upProducto.Imagen;
                     IsActive = upProducto.IsActive;
                 }
+
+                SetProductos();
             }
             catch (Exception ex)
             {
@@ -89,15 +103,16 @@ namespace FeriaVirtualApp.ViewModels
             }
         }
 
-        public async Task<ObservableCollection<Producto>> ObtenerProdctosAsync()
+        public async Task<ObservableCollection<Producto>> ObtenerProductosAsync()
         {
-            ObservableCollection<Producto> usuariosFromApi = new();
-            string url = "http://localhost:5000/api/producto/obtener/todos";
             bool actividad;
+            string url = "http://localhost:5000/api/producto/obtener/todos";
+
+            HttpClient client = new();
+            ObservableCollection<Producto> prductosFromApi = new();
 
             try
             {
-                HttpClient client = new();
                 HttpResponseMessage res = await client.GetAsync(url);
                 HttpContent content = res.Content;
                 string data = await content.ReadAsStringAsync();
@@ -113,7 +128,7 @@ namespace FeriaVirtualApp.ViewModels
                     actividad = rows[i][2].ToString() == "1";
 
                     byte[] image = Convert.FromBase64String(img[i].ToString());
-                    
+
                     Producto producto = new()
                     {
                         IdProducto = int.Parse(rows[i][0].ToString()),
@@ -122,7 +137,7 @@ namespace FeriaVirtualApp.ViewModels
                         Imagen = image
                     };
 
-                    usuariosFromApi.Add(producto);
+                    prductosFromApi.Add(producto);
                 }
             }
             catch (Exception ex)
@@ -130,7 +145,7 @@ namespace FeriaVirtualApp.ViewModels
                 Console.WriteLine(ex.Message);
             }
 
-            return usuariosFromApi;
+            return prductosFromApi;
         }
 
         public async Task GuAcProducto()
@@ -141,7 +156,7 @@ namespace FeriaVirtualApp.ViewModels
 
             try
             {
-                if(IdProducto > 0)
+                if (IdProducto > 0)
                 {
                     producto.IdProducto = IdProducto;
                 }
@@ -152,31 +167,32 @@ namespace FeriaVirtualApp.ViewModels
 
                 if (producto != null)
                 {
+                    string json = JsonConvert.SerializeObject(producto);
+                    data = new(json, Encoding.UTF8, "application/json");
+
                     if (producto.IdProducto > 0)
                     {
-                        string json = JsonConvert.SerializeObject(producto);
-                        data = new(json, Encoding.UTF8, "application/json");
-
                         HttpResponseMessage response = await client
                             .PostAsync("http://localhost:5000/api/producto/modificar", data);
                         HttpStatusCode codeStatus = response.StatusCode;
                     }
                     else
                     {
-                        string json = JsonConvert.SerializeObject(producto);
-                        data = new(json, Encoding.UTF8, "application/json");
-
                         HttpResponseMessage response = await client
                             .PostAsync("http://localhost:5000/api/producto/insertar", data);
                         HttpStatusCode codeStatus = response.StatusCode;
                     }
                 }
-
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        private async Task SetProductos()
+        {
+            Productos = await ObtenerProductosAsync();
         }
     }
 }

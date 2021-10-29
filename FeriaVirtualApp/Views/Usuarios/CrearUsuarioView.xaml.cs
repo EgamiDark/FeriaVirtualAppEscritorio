@@ -1,5 +1,6 @@
 ﻿using FeriaVirtualApp.Models;
 using FeriaVirtualApp.ViewModels;
+using System;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +12,7 @@ namespace FeriaVirtualApp.Views.Usuarios
     /// </summary>
     public partial class CrearUsuarioView : Window
     {
+        public event EventHandler<string> AfterClosingEvent;
         private readonly UsuariosViewModel UVM;
 
         public CrearUsuarioView()
@@ -75,6 +77,11 @@ namespace FeriaVirtualApp.Views.Usuarios
             txtContra.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             txtDireccion.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             txtTelefono.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            AfterClosingEvent?.Invoke(this, txtNombre.Text);
         }
     }
 }

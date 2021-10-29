@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "k6hKWaqlzQJI8LN6iW2/aLuiYVwuA77I3QmzenkzmBmMGVPeyttjwK1qiKG69WfEEZFd88mtFaCCgAy5dYp2Xw==",
+  "dgSpecHash": "oCyqckrUYTB5HKWWEQOX3uDyPJ5eGgFGmsccUahm0w3vRA8AbeDYrhU9oo18qzvTN1ntzM88rrICAzdDeKqDgQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\matig\\Documents\\GitHub\\FeriaVirtualAppEscritorio\\FeriaVirtualApp\\FeriaVirtualApp.csproj",
+  "projectFilePath": "C:\\Users\\Nicolas\\source\\repos\\FeriaVirtualAppEscritorio\\FeriaVirtualApp\\FeriaVirtualApp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\matig\\.nuget\\packages\\materialdesigncolors\\2.0.1\\materialdesigncolors.2.0.1.nupkg.sha512",
-    "C:\\Users\\matig\\.nuget\\packages\\materialdesignthemes\\4.1.0\\materialdesignthemes.4.1.0.nupkg.sha512",
-    "C:\\Users\\matig\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\Nicolas\\.nuget\\packages\\materialdesigncolors\\2.0.1\\materialdesigncolors.2.0.1.nupkg.sha512",
+    "C:\\Users\\Nicolas\\.nuget\\packages\\materialdesignthemes\\4.1.0\\materialdesignthemes.4.1.0.nupkg.sha512",
+    "C:\\Users\\Nicolas\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }

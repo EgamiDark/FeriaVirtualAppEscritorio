@@ -41,7 +41,6 @@
                                 Grid.Column="0"
                                 Margin="10,0,64,10">
                         <Label x:Name="TxtBuscar"
-                               KeyUp="txtSearch_KeyUp"
                                Content="Buscar: "
                                VerticalAlignment="Bottom"
                                HorizontalAlignment="Right"
@@ -53,7 +52,7 @@
                                  HorizontalAlignment="Left"
                                  Width="150"
                                  FontSize="14"
-                                 KeyUp="txtSearch_KeyUp"/>
+                                 KeyUp="TxtSearch_KeyUp"/>
                     </StackPanel>
 
                     <Button x:Name="BtnCrearProducto"
@@ -84,7 +83,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Button x:Name="btnActualizar"
-                                                Click="btnActualizar_Click"
+                                                Click="BtnActualizar_Click"
                                                 Content="Actualizar"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>

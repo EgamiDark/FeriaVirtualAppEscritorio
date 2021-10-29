@@ -8,7 +8,6 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 using Microsoft.Win32;
-using System.Windows.Media;
 
 namespace FeriaVirtualApp.Views.Productos
 {
@@ -17,23 +16,23 @@ namespace FeriaVirtualApp.Views.Productos
     /// </summary>
     public partial class CrearProductoView : Window
     {
+        public event EventHandler<string> AfterClosingEvent;
         private readonly ProductosViewModel PVM;
 
         public CrearProductoView()
         {
             InitializeComponent();
             txtTitulo.Text = "Ingresar Producto";
-            btnGuardar.Content = "Ingresar";
+            BtnGuardar.Content = "Ingresar";
             PVM = new ProductosViewModel();
             DataContext = PVM;
-
         }
 
         public CrearProductoView(Producto producto)
         {
             InitializeComponent();
             txtTitulo.Text = "Actualizar Producto";
-            btnGuardar.Content = "Actualizar";
+            BtnGuardar.Content = "Actualizar";
 
             try
             {
@@ -53,9 +52,10 @@ namespace FeriaVirtualApp.Views.Productos
             DataContext = PVM;
         }
 
-        private async void btnGuardar_Click(object sender, RoutedEventArgs e)
+        private async void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
             ForceValidation();
+
             if (!Validation.GetHasError(txtNombre))
             {
                 PVM.Imagen = ObtenerByteImagen();
@@ -73,6 +73,8 @@ namespace FeriaVirtualApp.Views.Productos
         private void BtnImagen_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new();
+            openFileDialog.Filter = "Imagenes|*.jpg; *.png; *.jpeg";
+
             if (openFileDialog.ShowDialog() == true)
             {
                 string imagePath = @"" + openFileDialog.FileName;
@@ -106,6 +108,11 @@ namespace FeriaVirtualApp.Views.Productos
                 arr = ms.ToArray();
             }
             return arr;
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            AfterClosingEvent?.Invoke(this, txtNombre.Text);
         }
     }
 }

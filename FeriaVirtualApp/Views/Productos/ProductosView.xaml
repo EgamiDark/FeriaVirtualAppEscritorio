@@ -72,13 +72,13 @@
                               Grid.Row="1"
                               Grid.Column="0"
                               Grid.ColumnSpan="2"
-                              ItemsSource="{Binding Productos}" 
+                              ItemsSource="{Binding productos}" 
                               AutoGenerateColumns="False" 
                               Margin="10,10,64,10"
                               IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" FontSize="16" Width="*" />
-                            <DataGridTextColumn Header="Activo" Binding="{Binding IsActive}" FontSize="16" Width="*" />
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" FontSize="16" Width="*" />
+                            <DataGridTextColumn Header="Activo" Binding="{Binding isActive}" FontSize="16" Width="*" />
                             <DataGridTemplateColumn Header="Acción">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>

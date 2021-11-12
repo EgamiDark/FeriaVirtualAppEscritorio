@@ -6,17 +6,15 @@ namespace FeriaVirtualApp.ViewModels
     {
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand UsuariosViewCommand { get; set; }
-        public RelayCommand VentasViewCommand { get; set; }
-        public RelayCommand ReportesViewCommand { get; set; }
-        public RelayCommand TransportistaViewCommand { get; set; }
+        public RelayCommand VentasExternasViewCommand { get; set; }
+        public RelayCommand VentasLocalesViewCommand { get; set; }
         public RelayCommand SubastasViewCommand { get; set; }
         public RelayCommand ProductosViewCommand { get; set; }
 
         public HomeViewModel HomeVM { get; set; }
         public UsuariosViewModel UsuariosVM { get; set; }
-        public VentasViewModel VentasVM { get; set; }
-        public ReportesViewModel ReportesVM { get; set; }
-        public TransportistaViewModel TransportistaVM { get; set; }
+        public VentasExternasViewModel VentasExternasVM { get; set; }
+        public VentasLocalesViewModel VentasLocalesVM { get; set; }
         public SubastasViewModel SubastasVM { get; set; }
         public ProductosViewModel ProductosVM { get; set; }
 
@@ -36,9 +34,8 @@ namespace FeriaVirtualApp.ViewModels
         {
             HomeVM = new HomeViewModel();
             UsuariosVM = new UsuariosViewModel();
-            VentasVM = new VentasViewModel();
-            ReportesVM = new ReportesViewModel();
-            TransportistaVM = new TransportistaViewModel();
+            VentasExternasVM = new VentasExternasViewModel();
+            VentasLocalesVM = new VentasLocalesViewModel();
             SubastasVM = new SubastasViewModel();
             ProductosVM = new ProductosViewModel();
 
@@ -54,20 +51,16 @@ namespace FeriaVirtualApp.ViewModels
                 CurrentView = UsuariosVM;
             });
 
-            VentasViewCommand = new RelayCommand(o =>
+            VentasExternasViewCommand = new RelayCommand(o =>
             {
-                CurrentView = VentasVM;
+                CurrentView = VentasExternasVM;
             });
 
-            ReportesViewCommand = new RelayCommand(o =>
+            VentasLocalesViewCommand = new RelayCommand(o =>
             {
-                CurrentView = ReportesVM;
+                CurrentView = VentasLocalesVM;
             });
 
-            TransportistaViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = TransportistaVM;
-            });
 
             SubastasViewCommand = new RelayCommand(o =>
             {

@@ -19,57 +19,57 @@ namespace FeriaVirtualApp.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         private ObservableCollection<Producto> _productos;
-        public ObservableCollection<Producto> Productos
+        public ObservableCollection<Producto> productos
         {
             get => _productos;
             set
             {
                 _productos = value;
-                OnPropertyChanged(nameof(Productos));
+                OnPropertyChanged(nameof(productos));
             }
         }
 
         private int _idProducto;
-        public int IdProducto
+        public int idProducto
         {
             get => _idProducto;
             set
             {
                 _idProducto = value;
-                OnPropertyChanged(nameof(IdProducto));
+                OnPropertyChanged(nameof(idProducto));
             }
         }
 
         private string _nombre;
-        public string Nombre
+        public string nombre
         {
             get => _nombre;
             set
             {
                 _nombre = value;
-                OnPropertyChanged(nameof(Nombre));
+                OnPropertyChanged(nameof(nombre));
             }
         }
 
         private byte[] _imagen;
-        public byte[] Imagen
+        public byte[] imagen
         {
             get => _imagen;
             set
             {
                 _imagen = value;
-                OnPropertyChanged(nameof(Imagen));
+                OnPropertyChanged(nameof(imagen));
             }
         }
 
         private bool _isActive;
-        public bool IsActive
+        public bool isActive
         {
             get => _isActive;
             set
             {
                 _isActive = value;
-                OnPropertyChanged(nameof(IsActive));
+                OnPropertyChanged(nameof(isActive));
             }
         }
 
@@ -89,10 +89,10 @@ namespace FeriaVirtualApp.ViewModels
             {
                 if (upProducto != null)
                 {
-                    IdProducto = upProducto.IdProducto;
-                    Nombre = upProducto.Nombre;
-                    Imagen = upProducto.Imagen;
-                    IsActive = upProducto.IsActive;
+                    idProducto = upProducto.idProducto;
+                    nombre = upProducto.nombre;
+                    imagen = upProducto.imagen;
+                    isActive = upProducto.isActive;
                 }
 
                 SetProductos();
@@ -119,7 +119,6 @@ namespace FeriaVirtualApp.ViewModels
                 JObject dataObj = JObject.Parse(data);
 
                 JToken rows = dataObj["rows"];
-                JToken img = dataObj["img"];
                 int length = rows.Count<object>();
 
                 for (int i = 0; i < length; i++)
@@ -127,14 +126,14 @@ namespace FeriaVirtualApp.ViewModels
                     // Convierte la actividad de string a booleano
                     actividad = rows[i][2].ToString() == "1";
 
-                    byte[] image = Convert.FromBase64String(img[i].ToString());
+                    byte[] image = Convert.FromBase64String(rows[i][3].ToString());
 
                     Producto producto = new()
                     {
-                        IdProducto = int.Parse(rows[i][0].ToString()),
-                        Nombre = rows[i][1].ToString(),
-                        IsActive = actividad,
-                        Imagen = image
+                        idProducto = int.Parse(rows[i][0].ToString()),
+                        nombre = rows[i][1].ToString(),
+                        isActive = actividad,
+                        imagen = image
                     };
 
                     prductosFromApi.Add(producto);
@@ -156,21 +155,21 @@ namespace FeriaVirtualApp.ViewModels
 
             try
             {
-                if (IdProducto > 0)
+                if (idProducto > 0)
                 {
-                    producto.IdProducto = IdProducto;
+                    producto.idProducto = idProducto;
                 }
 
-                producto.Nombre = Nombre;
-                producto.Imagen = Imagen;
-                producto.IsActive = IsActive;
+                producto.nombre = nombre;
+                producto.imagen = imagen;
+                producto.isActive = isActive;
 
                 if (producto != null)
                 {
                     string json = JsonConvert.SerializeObject(producto);
                     data = new(json, Encoding.UTF8, "application/json");
 
-                    if (producto.IdProducto > 0)
+                    if (producto.idProducto > 0)
                     {
                         HttpResponseMessage response = await client
                             .PostAsync("http://localhost:5000/api/producto/modificar", data);
@@ -192,7 +191,7 @@ namespace FeriaVirtualApp.ViewModels
 
         private async Task SetProductos()
         {
-            Productos = await ObtenerProductosAsync();
+            productos = await ObtenerProductosAsync();
         }
     }
 }

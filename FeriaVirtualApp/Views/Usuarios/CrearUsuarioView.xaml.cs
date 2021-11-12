@@ -20,6 +20,7 @@ namespace FeriaVirtualApp.Views.Usuarios
             InitializeComponent();
             txtTitulo.Text = "Ingresar Usuario";
             btnGuardar.Content = "Guardar Usuario";
+            actividad.IsChecked = true;
             UVM = new UsuariosViewModel();
             SetValues();
         }
@@ -29,13 +30,14 @@ namespace FeriaVirtualApp.Views.Usuarios
             InitializeComponent();
             txtTitulo.Text = "Actualizar Usuario";
             btnGuardar.Content = "Actualizar Usuario";
+            actividad.IsChecked = usuario.actividad;
             UVM = new UsuariosViewModel(usuario);
             SetValues();
         }
 
         private async Task SetValues()
         {
-            UVM.Roles = await UVM.ObtenerRolesAsync();
+            UVM.roles = await UVM.ObtenerRolesAsync();
             DataContext = UVM;
         }
 
@@ -56,6 +58,7 @@ namespace FeriaVirtualApp.Views.Usuarios
                                 {
                                     if (!Validation.GetHasError(txtTelefono))
                                     {
+                                        UVM.actividad = actividad.IsChecked.Value;
                                         await UVM.GuAcUsuario();
                                         MessageBox.Show("Usuario guardado!");
                                         Close();

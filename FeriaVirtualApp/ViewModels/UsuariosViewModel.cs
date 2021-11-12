@@ -20,12 +20,12 @@ namespace FeriaVirtualApp.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ObservableCollection<Usuario> Usuarios { get; set; }
+        public ObservableCollection<Usuario> usuarios { get; set; }
 
-        public ObservableCollection<Rol> Roles { get; set; }
+        public ObservableCollection<Rol> roles { get; set; }
 
         private Usuario _usuario;
-        public Usuario Usuario
+        public Usuario usuario
         {
             get => _usuario;
             set
@@ -33,130 +33,130 @@ namespace FeriaVirtualApp.ViewModels
                 if (_usuario != null)
                 {
                     _usuario = value;
-                    OnPropertyChanged(nameof(Usuario));
+                    OnPropertyChanged(nameof(usuario));
                 }
             }
         }
 
         private Rol _rol;
-        public Rol Rol
+        public Rol rol
         {
             get => _rol;
             set
             {
                 _rol = value;
-                OnPropertyChanged(nameof(Rol));
+                OnPropertyChanged(nameof(rol));
             }
         }
 
         #region Inicio atributos de la Clase Usuario, para ser modificados o agregados
         private int _idUsuario;
-        public int IdUsuario
+        public int idUsuario
         {
             get => _idUsuario;
             set
             {
                 _idUsuario = value;
-                OnPropertyChanged(nameof(IdUsuario));
+                OnPropertyChanged(nameof(idUsuario));
             }
         }
 
         private string _rut;
-        public string Rut
+        public string rut
         {
             get => _rut;
             set
             {
                 _rut = value;
-                OnPropertyChanged(nameof(Rut));
+                OnPropertyChanged(nameof(rut));
             }
         }
 
         private string _nombre;
-        public string Nombre
+        public string nombre
         {
             get => _nombre;
             set
             {
                 _nombre = value;
-                OnPropertyChanged(nameof(Nombre));
+                OnPropertyChanged(nameof(nombre));
             }
         }
 
         private string _apellidos;
-        public string Apellidos
+        public string apellidos
         {
             get => _apellidos;
             set
             {
                 _apellidos = value;
-                OnPropertyChanged(nameof(Apellidos));
+                OnPropertyChanged(nameof(apellidos));
             }
         }
 
         private string _email;
-        public string Email
+        public string email
         {
             get => _email;
             set
             {
                 _email = value;
-                OnPropertyChanged(nameof(Email));
+                OnPropertyChanged(nameof(email));
             }
         }
 
         private string _contrasenia;
-        public string Contrasenia
+        public string contrasenia
         {
             get => _contrasenia;
             set
             {
                 _contrasenia = value;
-                OnPropertyChanged(nameof(Contrasenia));
+                OnPropertyChanged(nameof(contrasenia));
             }
         }
 
         private bool _actividad;
-        public bool Actividad
+        public bool actividad
         {
             get => _actividad;
             set
             {
                 _actividad = value;
-                OnPropertyChanged(nameof(Actividad));
+                OnPropertyChanged(nameof(actividad));
             }
         }
 
         private string _direccion;
-        public string Direccion
+        public string direccion
         {
             get => _direccion;
             set
             {
                 _direccion = value;
-                OnPropertyChanged(nameof(Direccion));
+                OnPropertyChanged(nameof(direccion));
             }
         }
 
         private string _telefono;
-        public string Telefono
+        public string telefono
         {
             get => _telefono;
             set
             {
                 _telefono = value;
-                OnPropertyChanged(nameof(Telefono));
+                OnPropertyChanged(nameof(telefono));
             }
         }
 
         private int _idRol;
-        public int IdRol
+        public int idRol
         {
             get => _idRol;
             set
             {
                 _idRol = value;
-                OnPropertyChanged(nameof(IdRol));
+                OnPropertyChanged(nameof(idRol));
             }
         }
 
@@ -173,25 +173,25 @@ namespace FeriaVirtualApp.ViewModels
 
         public UsuariosViewModel()
         {
-            Usuario = new();
+            usuario = new();
         }
 
         public UsuariosViewModel(Usuario upUsuario)
         {
-            Rol = new();
+            Rol rol = new();
 
             try
             {
-                IdUsuario = upUsuario.IdUsuario;
-                Rut = upUsuario.Rut;
-                Nombre = upUsuario.Nombre;
-                Apellidos = upUsuario.Apellidos;
-                Email = upUsuario.Email;
-                Contrasenia = upUsuario.Contrasenia;
-                Actividad = upUsuario.Actividad;
-                Direccion = upUsuario.Direccion;
-                Telefono = upUsuario.Telefono;
-                IdRol = upUsuario.IdRol - 1;
+                idUsuario = upUsuario.idUsuario;
+                rut = upUsuario.rut;
+                nombre = upUsuario.nombre;
+                apellidos = upUsuario.apellidos;
+                email = upUsuario.email;
+                contrasenia = upUsuario.contrasenia;
+                actividad = upUsuario.actividad;
+                direccion = upUsuario.direccion;
+                telefono = upUsuario.telefono;
+                idRol = upUsuario.idRol - 1;
             }
             catch (Exception ex)
             {
@@ -210,24 +210,24 @@ namespace FeriaVirtualApp.ViewModels
 
             try
             {
-                if (IdUsuario > 0)
+                if (idUsuario > 0)
                 {
-                    usuario.IdUsuario = IdUsuario;
+                    usuario.idUsuario = idUsuario;
                 }
 
-                usuario.Rut = Rut;
-                usuario.Nombre = Nombre;
-                usuario.Apellidos = Apellidos;
-                usuario.Email = Email;
-                usuario.Contrasenia = Contrasenia;
-                usuario.Actividad = Actividad;
-                usuario.Direccion = Direccion;
-                usuario.Telefono = Telefono;
-                usuario.IdRol = Rol.IdRol;
+                usuario.rut = rut;
+                usuario.nombre = nombre;
+                usuario.apellidos = apellidos;
+                usuario.email = email;
+                usuario.contrasenia = contrasenia;
+                usuario.actividad = actividad;
+                usuario.direccion = direccion;
+                usuario.telefono = telefono;
+                usuario.idRol = rol.idRol;
 
                 if (usuario != null)
                 {
-                    if (usuario.IdUsuario > 0)
+                    if (usuario.idUsuario > 0)
                     {
                         string json = JsonConvert.SerializeObject(usuario);
                         data = new(json, Encoding.UTF8, "application/json");
@@ -279,16 +279,16 @@ namespace FeriaVirtualApp.ViewModels
 
                     Usuario usuario = new()
                     {
-                        IdUsuario = int.Parse(rows[i][0].ToString()),
-                        Rut = rows[i][1].ToString(),
-                        Nombre = rows[i][2].ToString(),
-                        Apellidos = rows[i][3].ToString(),
-                        Email = rows[i][4].ToString(),
-                        Contrasenia = rows[i][5].ToString(),
-                        Actividad = actividad,
-                        Direccion = rows[i][7].ToString(),
-                        Telefono = rows[i][8].ToString(),
-                        IdRol = int.Parse(rows[i][9].ToString()),
+                        idUsuario = int.Parse(rows[i][0].ToString()),
+                        rut = rows[i][1].ToString(),
+                        nombre = rows[i][2].ToString(),
+                        apellidos = rows[i][3].ToString(),
+                        email = rows[i][4].ToString(),
+                        contrasenia = rows[i][5].ToString(),
+                        actividad = actividad,
+                        direccion = rows[i][7].ToString(),
+                        telefono = rows[i][8].ToString(),
+                        idRol = int.Parse(rows[i][9].ToString()),
                     };
 
                     usuariosFromApi.Add(usuario);
@@ -323,8 +323,8 @@ namespace FeriaVirtualApp.ViewModels
                 {
                     Rol rol = new()
                     {
-                        IdRol = int.Parse(rows[i][0].ToString()),
-                        Descripcion = rows[i][1].ToString()
+                        idRol = int.Parse(rows[i][0].ToString()),
+                        descripcion = rows[i][1].ToString()
                     };
 
                     rolesFromApi.Add(rol);

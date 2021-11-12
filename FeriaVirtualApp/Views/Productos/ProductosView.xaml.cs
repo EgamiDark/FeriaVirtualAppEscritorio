@@ -26,8 +26,8 @@ namespace FeriaVirtualApp.Views.Productos
 
         private void TxtSearch_KeyUp(object sender, KeyEventArgs e)
         {
-            IEnumerable<Producto> filtroProductos = PVM.Productos
-                .Where(u => u.Nombre.Contains(txtSearch.Text));
+            IEnumerable<Producto> filtroProductos = PVM.productos
+                .Where(u => u.nombre.Contains(txtSearch.Text));
 
             dgProductos.ItemsSource = filtroProductos;
         }
@@ -38,7 +38,7 @@ namespace FeriaVirtualApp.Views.Productos
             crearProductoView.ShowDialog();
             crearProductoView.Closing += (o, s) =>
             {
-                MessageBox.Show("Producto agreado: " + s);
+                MessageBox.Show("Producto agregado: " + s);
             };
 
             SetValues();
@@ -61,7 +61,7 @@ namespace FeriaVirtualApp.Views.Productos
         private async Task SetValues()
         {
             PVM = new ProductosViewModel();
-            PVM.Productos = await PVM.ObtenerProductosAsync();
+            PVM.productos = await PVM.ObtenerProductosAsync();
             DataContext = PVM;
         }
     }

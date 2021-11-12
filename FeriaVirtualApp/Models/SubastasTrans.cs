@@ -4,14 +4,16 @@ namespace FeriaVirtualApp.Models
 {
     public class SubastasTrans
     {
-        public int IdSubastaTrans { get; set; }
-        public DateTime FechaSubasta { get; set; }
-        public DateTime Fechatermino { get; set; }
+        public int idSubastaTrans { get; set; }
+        public string fechaSubasta { get; set; }
+        public string fechaTermino { get; set; }
+        public int idPedido { get; set; }
+        public int idVentaLocal { get; set; }
+        public int idTipoRefrig { get; set; }
+        public int idTipoTrans { get; set; }
+        public int idTipoVenta { get; set; }
+        public string tipoVenta { get; set; }
+        public string estadoSubasta { get; set; }
 
-        public int IdPedido { get; set; }
-        public int IdVentaLocal { get; set; }
-        public int IdTipoRefrig { get; set; }
-        public int IdTipoTrans { get; set; }
-        public int IdEstSubasta { get; set; }
     }
 }

@@ -56,8 +56,8 @@
             <StackPanel Orientation="Horizontal" Margin="10"
                         Grid.Row="1" Grid.Column="0">
                 <Label Content="Nombre: " FontSize="18" Width="79" Height="30" Foreground="White"/>
-                <TextBox FontSize="16" Width="150" Height="30" Foreground="White" x:Name="txtNombre">
-                    <Binding Path="Nombre" UpdateSourceTrigger="PropertyChanged">
+                <TextBox FontSize="16" Width="150" Height="30" Foreground="White" x:Name="txtNombre" Cursor="IBeam">
+                    <Binding Path="nombre" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
                             <validations:StringRangeValidationRule MinimumLength="3" MaximumLength="100"
                                     ErrorMessage="El largo del campo es mínimo 3 y máximo 100 caracteres"/>
@@ -75,12 +75,12 @@
             <StackPanel Orientation="Horizontal" Margin="10"
                         Grid.Row="2" Grid.Column="0">
                 <Label Content="Activo: " FontSize="18" Width="80" Height="30" Foreground="White"/>
-                <CheckBox Width="18" Height="30" IsChecked="{Binding IsActive}"/>
+                <CheckBox x:Name="isActive" Width="18" Height="30"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="10"
                         Grid.Row="2" Grid.Column="1" Grid.RowSpan="2">
-                <Image x:Name="ImgProducto" />
+                <Image x:Name="imgProducto" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="10" 

@@ -52,28 +52,44 @@
                                  FontSize="14"/>
                     </StackPanel>
 
-                    <Button Grid.Row="0" 
-                            Grid.Column="1"
-                            Margin="539,17,64,16">
-                    </Button>
-
                     <DataGrid x:Name="dgSubastas"
                               Grid.Row="1"
                               Grid.Column="0"
                               Grid.ColumnSpan="2"
+                              ItemsSource="{Binding subastas}" 
                               AutoGenerateColumns="False" 
                               Margin="10,10,64,10"
                               IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Fecha Solicitud" FontSize="16" Width="*" />
-                            <DataGridTextColumn Header="Nombre Producto" FontSize="16" Width="*" />
-                            <DataGridTextColumn Header="Cant. Solicitada" FontSize="16" Width="*" />
-                            <DataGridTextColumn Header="Kg X Unidad" FontSize="16" Width="*" />
-                            <DataGridTextColumn Header="Precio Maximo" FontSize="16" Width="*" />
-                            <DataGridTemplateColumn Header="Acción">
+                            <DataGridTextColumn Header="Id Subasta" Binding="{Binding idSubastaTrans}" FontSize="16" Width="*" />
+                            <DataGridTextColumn Header="Fecha Ini." Binding="{Binding fechaSubasta}" FontSize="16" Width="*" />
+                            <DataGridTextColumn Header="Fecha Term." Binding="{Binding fechaTermino}" FontSize="16" Width="*" />
+                            <DataGridTextColumn Header="Estado" Binding="{Binding estadoSubasta}" FontSize="16" Width="*" />
+                            <DataGridTemplateColumn Header="Ofertas">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Content="Actualizar"/>
+                                        <Button Content="(o)" x:Name="btnVerOfertas" Click="btnVerOfertas_Click"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Actualizar">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="*" x:Name="btnActualizar" Click="btnActualizar_Click"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Terminar">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="-" x:Name="btnTerminar" Click="btnTerminar_Click"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Cancelar">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="-" x:Name="btnCancelar" Click="btnCancelar_Click"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>

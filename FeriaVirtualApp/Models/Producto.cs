@@ -2,9 +2,9 @@
 {
     public class Producto
     {
-        public int IdProducto { get; set; }
-        public string Nombre { get; set; }
-        public bool IsActive { get; set; }
-        public byte[] Imagen { get; set; }
+        public int idProducto { get; set; }
+        public string nombre { get; set; }
+        public bool isActive { get; set; }
+        public byte[] imagen { get; set; }
     }
 }

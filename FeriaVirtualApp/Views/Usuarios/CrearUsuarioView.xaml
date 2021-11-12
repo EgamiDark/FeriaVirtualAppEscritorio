@@ -57,9 +57,9 @@
             <StackPanel Orientation="Horizontal" Margin="10" 
                         Grid.Row="1" Grid.Column="0">
                 <Label Content="Rut: " FontSize="18" Width="40" Height="30" Foreground="White"/>
-                <TextBox FontSize="16" Width="150" Height="30" Foreground="White" x:Name="txtRut">
+                <TextBox FontSize="16" Width="150" Height="30" Foreground="White" x:Name="txtRut" Cursor="IBeam">
                     <TextBox.Text>
-                        <Binding Path="Rut" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="rut" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
                                 <validations:RutValidationRule
                                     ErrorMessage="Ingrese un formato correcto para el rut"/>
@@ -74,7 +74,7 @@
                 <Label Content="Nombre: " FontSize="18" Width="80" Height="30" Foreground="White"/>
                 <TextBox FontSize="16" Width="150" Height="30" Foreground="White" x:Name="txtNombre">
                     <TextBox.Text>
-                        <Binding Path="Nombre" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="nombre" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
                                 <validations:StringRangeValidationRule MinimumLength="3" MaximumLength="100"
                                     ErrorMessage="El largo del campo es mínimo 3 y máximo 100 caracteres"/>
@@ -89,7 +89,7 @@
                 <Label Content="Apellidos: " FontSize="18" Width="90" Height="30" Foreground="White"/>
                 <TextBox FontSize="16" Width="150" Height="30" Foreground="White" x:Name="txtApellidos">
                     <TextBox.Text>
-                        <Binding Path="Apellidos" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="apellidos" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
                                 <validations:StringRangeValidationRule MinimumLength="3" MaximumLength="100"
                                     ErrorMessage="El largo del campo es mínimo 3 y máximo 100 caracteres"/>
@@ -104,7 +104,7 @@
                 <Label Content="Email: " FontSize="18" Width="60" Height="30" Foreground="White"/>
                 <TextBox FontSize="16" Width="150" Height="30" Foreground="White" x:Name="txtEmail">
                     <TextBox.Text>
-                        <Binding Path="Email" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="email" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
                                 <validations:EmailValidationRule
                                     ErrorMessage="Ingrese un email con formato valido"/>
@@ -119,7 +119,7 @@
                 <Label Content="Contraseña: " FontSize="18" Width="110" Height="30" Foreground="White"/>
                 <TextBox FontSize="16" Width="150" Height="30" Foreground="White" x:Name="txtContra">
                     <TextBox.Text>
-                        <Binding Path="Contrasenia" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="contrasenia" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
                                 <validations:StringRangeValidationRule MinimumLength="3" MaximumLength="100"
                                     ErrorMessage="El largo del campo es mínimo 3 y máximo 100 caracteres"/>
@@ -132,7 +132,7 @@
             <StackPanel Orientation="Horizontal" Margin="10" 
                         Grid.Row="3" Grid.Column="1">
                 <Label Content="Activo: " FontSize="18" Width="70" Height="30" Foreground="White"/>
-                <CheckBox  Width="150" Height="30" IsChecked="{Binding Actividad}"/>
+                <CheckBox x:Name="actividad" Width="150" Height="30"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="10" 
@@ -140,7 +140,7 @@
                 <Label Content="Dirección: " FontSize="18" Width="90" Height="30" Foreground="White"/>
                 <TextBox FontSize="16" Width="150" Height="30" Foreground="White" x:Name="txtDireccion">
                     <TextBox.Text>
-                        <Binding Path="Direccion" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="direccion" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
                                 <validations:StringRangeValidationRule MinimumLength="3" MaximumLength="100"
                                     ErrorMessage="El largo del campo es mínimo 3 y máximo 100 caracteres"/>
@@ -156,7 +156,7 @@
                 <Label Content="Telefono: " FontSize="18" Width="80" Height="30" Foreground="White"/>
                 <TextBox FontSize="16" Width="150" Height="30" Foreground="White" x:Name="txtTelefono">
                     <TextBox.Text>
-                        <Binding Path="Telefono" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="telefono" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
                                 <validations:StringRangeValidationRule MinimumLength="3" MaximumLength="100"
                                     ErrorMessage="El largo del campo es mínimo 3 y máximo 100 caracteres"/>
@@ -170,10 +170,10 @@
                         Grid.Row="5" Grid.Column="0">
                 <Label Content="Rol: " FontSize="18" Width="40" Height="30" Foreground="White"/>
                 <ComboBox Width="125" Height="30" 
-                          ItemsSource="{Binding Path=Roles}"
-                          SelectedItem="{Binding Path=Rol}"
-                          SelectedIndex="{Binding IdRol}"
-                          DisplayMemberPath="Descripcion">
+                          ItemsSource="{Binding Path=roles}"
+                          SelectedItem="{Binding Path=rol}"
+                          SelectedIndex="{Binding idRol}"
+                          DisplayMemberPath="descripcion">
                 </ComboBox>
             </StackPanel>
 

@@ -4,15 +4,15 @@ namespace FeriaVirtualApp.Models
 {
     public class Pedido
     {
-        public int IdPedido { get; set; }
-        public DateTime FechaSolicitud { get; set; }
-        public DateTime FechaTermino { get; set; }
-        public int Cantidad { get; set; }
-        public int KgUnidad { get; set; }
-        public int PrecioMaximo { get; set; }
-
-        public int IdEstPedido { get; set; }
-        public int IdUsuario { get; set; }
-        public int IdProducto { get; set; }
+        public int idPedido { get; set; }
+        public DateTime fechaSolicitud { get; set; }
+        public DateTime fechaTermino { get; set; }
+        public int cantidad { get; set; }
+        public int kgUnidad { get; set; }
+        public int precioMaximo { get; set; }
+                   
+        public int idEstPedido { get; set; }
+        public int idUsuario { get; set; }
+        public int idProducto { get; set; }
     }
 }

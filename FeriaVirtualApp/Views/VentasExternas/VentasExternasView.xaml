@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="FeriaVirtualApp.Views.Ventas.VentasView"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="FeriaVirtualApp.Views.VentasExternas.VentasExternasView"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Margin="0,0,-160,-216">
-        <TextBlock Text="Administrador de Ventas"
+        <TextBlock Text="Administrador de Ventas Externas"
                    Foreground="White"
                    FontSize="28"
                    HorizontalAlignment="left"
@@ -53,38 +53,25 @@
                                  FontSize="14"/>
                     </StackPanel>
 
-                    <Button Grid.Row="0" 
-                            Grid.Column="1"
-                            Margin="539,17,64,16">
-                        <materialDesign:PackIcon Kind="Plus" 
-                                                 FontSize="18" 
-                                                 Height="27" 
-                                                 Width="40" 
-                                                 VerticalAlignment="Center" 
-                                                 HorizontalAlignment="Center" 
-                                                 FontWeight="Bold"/>
-                    </Button>
-
-                    <DataGrid x:Name="Transportistas"
+                    <DataGrid x:Name="dgVentasExternas"
                               Grid.Row="1"
                               Grid.Column="0"
                               Grid.ColumnSpan="2"
+                              ItemsSource="{Binding ventasExternas}" 
                               AutoGenerateColumns="False" 
                               Margin="10,10,64,10"
                               IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Fecha Solicitud" FontSize="16" Width="*" />
-                            <DataGridTextColumn Header="Solicitante" FontSize="16" Width="*" />
-                            <DataGridTextColumn Header="Nombre Producto" FontSize="16" Width="*" />
-                            <DataGridTextColumn Header="Cant Solicitada" FontSize="16" Width="*" />
-                            <DataGridTextColumn Header="Kg X Unidad" FontSize="16" Width="*" />
-                            <DataGridTextColumn Header="Precio Maximo" FontSize="16" Width="*" />
-                            <DataGridTextColumn Header="Tipo Venta" FontSize="16" Width="*" />
-                            <DataGridTextColumn Header="Estado" FontSize="16" Width="*" />
+                            <DataGridTextColumn Header="Id Venta" Binding="{Binding idVentaExterna}" FontSize="16" Width="*" />
+                            <DataGridTextColumn Header="Producto" Binding="{Binding nombreProducto}" FontSize="16" Width="*" />
+                            <DataGridTextColumn Header="Solicitante" Binding="{Binding solicitante}" FontSize="16" Width="*" />
+                            <DataGridTextColumn Header="Kg X unidad" Binding="{Binding kgUnidad}" FontSize="16" Width="*" />
+                            <DataGridTextColumn Header="Cantidad U." Binding="{Binding cantidad}" FontSize="16" Width="*" />
+                            <DataGridTextColumn Header="Direccion" Binding="{Binding direccion}" FontSize="16" Width="*" />
                             <DataGridTemplateColumn Header="Acción">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Content="Actualizar"/>
+                                        <Button Content="Subastar" x:Name="btnSubastar" Click="btnSubastar_Click"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>

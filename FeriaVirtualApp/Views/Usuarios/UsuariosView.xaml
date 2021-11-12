@@ -70,15 +70,15 @@
                               Grid.Row="1"
                               Grid.Column="0"
                               Grid.ColumnSpan="2"
-                              ItemsSource="{Binding Usuarios}" 
+                              ItemsSource="{Binding usuarios}" 
                               AutoGenerateColumns="False" 
                               Margin="10,10,64,10"
                               IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Rut" Binding="{Binding Rut}" FontSize="16" Width="*" />
-                            <DataGridTextColumn Header="Email" Binding="{Binding Email}" FontSize="16" Width="*" />
-                            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" FontSize="16" Width="*" />
-                            <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" FontSize="16" Width="*" />
+                            <DataGridTextColumn Header="Rut" Binding="{Binding rut}" FontSize="16" Width="*" />
+                            <DataGridTextColumn Header="Email" Binding="{Binding email}" FontSize="16" Width="*" />
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" FontSize="16" Width="*" />
+                            <DataGridTextColumn Header="Apellidos" Binding="{Binding apellidos}" FontSize="16" Width="*" />
                             <DataGridTemplateColumn Header="Acción">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>

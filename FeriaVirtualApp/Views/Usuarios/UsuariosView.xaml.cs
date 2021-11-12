@@ -25,9 +25,9 @@ namespace FeriaVirtualApp.Views.Usuarios
 
         private void txtSearch_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            IEnumerable<Usuario> filtroUsuarios = UVM.Usuarios
-                .Where(u => u.Nombre.Contains(txtSearch.Text) ||
-                            u.Apellidos.Contains(txtSearch.Text));
+            IEnumerable<Usuario> filtroUsuarios = UVM.usuarios
+                .Where(u => u.nombre.Contains(txtSearch.Text) ||
+                            u.apellidos.Contains(txtSearch.Text));
 
             dgUsuarios.ItemsSource = filtroUsuarios;
         }
@@ -39,7 +39,7 @@ namespace FeriaVirtualApp.Views.Usuarios
 
             crearUsuarioView.Closing += (o, s) =>
             {
-                MessageBox.Show("Producto agreado: " + s);
+                MessageBox.Show("Producto agregado: " + s);
             };
 
             SetValues();
@@ -55,7 +55,7 @@ namespace FeriaVirtualApp.Views.Usuarios
 
             crearUsuarioView.Closing += (o, s) =>
             {
-                MessageBox.Show("Producto agreado: " + s);
+                MessageBox.Show("Producto modificado: " + s);
             };
 
             SetValues();
@@ -64,7 +64,7 @@ namespace FeriaVirtualApp.Views.Usuarios
         private async Task SetValues()
         {
             UVM = new UsuariosViewModel();
-            UVM.Usuarios = await UVM.ObtenerUsuariosAsync();
+            UVM.usuarios = await UVM.ObtenerUsuariosAsync();
             DataContext = UVM;
         }
     }

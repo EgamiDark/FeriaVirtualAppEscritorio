@@ -1,7 +1,11 @@
 ﻿
-FC:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\App.xaml;;
-FC:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\MainWindow.xaml;;
-FC:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\Views\HomeView.xaml;;
-FC:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\Views\Productos\CrearProductoView.xaml;;
-FC:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\Views\Usuarios\CrearUsuarioView.xaml;;
+FC:\Users\matig\Documents\GitHub\FeriaVirtualAppEscritorio\FeriaVirtualApp\App.xaml;;
+FC:\Users\matig\Documents\GitHub\FeriaVirtualAppEscritorio\FeriaVirtualApp\MainWindow.xaml;;
+FC:\Users\matig\Documents\GitHub\FeriaVirtualAppEscritorio\FeriaVirtualApp\Views\HomeView.xaml;;
+FC:\Users\matig\Documents\GitHub\FeriaVirtualAppEscritorio\FeriaVirtualApp\Views\Productos\CrearProductoView.xaml;;
+FC:\Users\matig\Documents\GitHub\FeriaVirtualAppEscritorio\FeriaVirtualApp\Views\Subastas\OfertasView.xaml;;
+FC:\Users\matig\Documents\GitHub\FeriaVirtualAppEscritorio\FeriaVirtualApp\Views\Usuarios\CrearUsuarioView.xaml;;
+FC:\Users\matig\Documents\GitHub\FeriaVirtualAppEscritorio\FeriaVirtualApp\Views\VentasExternas\SubastarView.xaml;;
+FC:\Users\matig\Documents\GitHub\FeriaVirtualAppEscritorio\FeriaVirtualApp\Views\VentasLocales\SubastarView.xaml;;
+FC:\Users\matig\Documents\GitHub\FeriaVirtualAppEscritorio\FeriaVirtualApp\Views\Subastas\ModificarSubastaView.xaml;;
 

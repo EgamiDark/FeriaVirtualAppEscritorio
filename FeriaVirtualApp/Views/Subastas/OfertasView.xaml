@@ -1,0 +1,56 @@
+﻿<Window x:Class="FeriaVirtualApp.Views.Subastas.OfertasView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:validations="clr-namespace:FeriaVirtualApp.Validations"
+        mc:Ignorable="d" 
+        Height="500" Width="600"
+        ResizeMode="NoResize"
+        WindowStyle="SingleBorderWindow"
+        Background="#272537" 
+        WindowStartupLocation="CenterScreen"
+        Closing="Window_Closing">
+    <Border >
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                <GradientStop Color="#5bc3ff" Offset="0.0"/>
+                <GradientStop Color="#3AA0FF" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
+        <Border.Clip>
+            <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0, 0, 600, 500"/>
+        </Border.Clip>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="65"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text=" Ofertas de la subasta"
+                   Foreground="White"
+                   FontSize="28"
+                   HorizontalAlignment="left"
+                   Margin="0, 0, 0, 20"/>
+            <DataGrid x:Name="dgSubastas"
+                              Grid.Row="1"
+                              Grid.Column="0"
+                              Grid.ColumnSpan="2"
+                              ItemsSource="{Binding ofertas}" 
+                              AutoGenerateColumns="False" 
+                              Margin="10,10,10,10"
+                              IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Precio Oferta" Binding="{Binding precioOferta}" FontSize="16" Width="*" />
+                    <DataGridTextColumn Header="Cantidad a transportar" Binding="{Binding cantidadTransporte}" FontSize="16" Width="*" />
+                    <DataGridTextColumn Header="Fecha Entrega aprox." Binding="{Binding fechaEntrega}" FontSize="16" Width="*" />
+                    <DataGridTextColumn Header="Estado" Binding="{Binding estadoOferta}" FontSize="16" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Border>
+</Window>

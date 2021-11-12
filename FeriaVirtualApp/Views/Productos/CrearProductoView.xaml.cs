@@ -6,6 +6,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using System.Threading.Tasks;
 
 using Microsoft.Win32;
 
@@ -24,8 +25,9 @@ namespace FeriaVirtualApp.Views.Productos
             InitializeComponent();
             txtTitulo.Text = "Ingresar Producto";
             BtnGuardar.Content = "Ingresar";
+            isActive.IsChecked = true;
             PVM = new ProductosViewModel();
-            DataContext = PVM;
+            SetValues();
         }
 
         public CrearProductoView(Producto producto)
@@ -38,17 +40,22 @@ namespace FeriaVirtualApp.Views.Productos
             {
                 BitmapImage bi = new();
                 bi.BeginInit();
-                bi.StreamSource = new MemoryStream(producto.Imagen);
+                bi.StreamSource = new MemoryStream(producto.imagen);
                 bi.EndInit();
 
-                ImgProducto.Source = bi;
+                imgProducto.Source = bi;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-
+            isActive.IsChecked = producto.isActive;
             PVM = new ProductosViewModel(producto);
+            SetValues();
+        }
+
+        private async Task SetValues()
+        {
             DataContext = PVM;
         }
 
@@ -58,7 +65,8 @@ namespace FeriaVirtualApp.Views.Productos
 
             if (!Validation.GetHasError(txtNombre))
             {
-                PVM.Imagen = ObtenerByteImagen();
+                PVM.imagen = ObtenerByteImagen();
+                PVM.isActive = isActive.IsChecked.Value;
                 await PVM.GuAcProducto();
                 MessageBox.Show("Producto guardado!");
                 Close();
@@ -85,7 +93,7 @@ namespace FeriaVirtualApp.Views.Productos
                 bi.StreamSource = new MemoryStream(binaryData);
                 bi.EndInit();
 
-                ImgProducto.Source = bi;
+                imgProducto.Source = bi;
             }
         }
 
@@ -101,7 +109,7 @@ namespace FeriaVirtualApp.Views.Productos
 
             using (MemoryStream ms = new())
             {
-                BitmapImage bmp = ImgProducto.Source as BitmapImage;
+                BitmapImage bmp = imgProducto.Source as BitmapImage;
                 JpegBitmapEncoder encoder = new();
                 encoder.Frames.Add(BitmapFrame.Create(bmp));
                 encoder.Save(ms);
@@ -109,6 +117,8 @@ namespace FeriaVirtualApp.Views.Productos
             }
             return arr;
         }
+
+
 
         private void Window_Closed(object sender, EventArgs e)
         {

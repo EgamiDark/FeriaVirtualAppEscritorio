@@ -4,9 +4,8 @@
              xmlns:viewModel="clr-namespace:FeriaVirtualApp.ViewModels"
              xmlns:view="clr-namespace:FeriaVirtualApp.Views"
              xmlns:viewUsuarios="clr-namespace:FeriaVirtualApp.Views.Usuarios"
-             xmlns:viewVentas="clr-namespace:FeriaVirtualApp.Views.Ventas"
-             xmlns:viewReportes="clr-namespace:FeriaVirtualApp.Views.Reportes"
-             xmlns:viewTransportista="clr-namespace:FeriaVirtualApp.Views.Transportistas"
+             xmlns:viewVentasExternas="clr-namespace:FeriaVirtualApp.Views.VentasExternas"
+             xmlns:viewVentasLocales="clr-namespace:FeriaVirtualApp.Views.VentasLocales"
              xmlns:viewSubastas="clr-namespace:FeriaVirtualApp.Views.Subastas"
              xmlns:viewProductos="clr-namespace:FeriaVirtualApp.Views.Productos"
              StartupUri="MainWindow.xaml">
@@ -33,16 +32,12 @@
                 <viewProductos:ProductosView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewModel:VentasViewModel}">
-                <viewVentas:VentasView/>
+            <DataTemplate DataType="{x:Type viewModel:VentasExternasViewModel}">
+                <viewVentasExternas:VentasExternasView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewModel:ReportesViewModel}">
-                <viewReportes:ReportesView/>
-            </DataTemplate>
-
-            <DataTemplate DataType="{x:Type viewModel:TransportistaViewModel}">
-                <viewTransportista:TransportistasView/>
+            <DataTemplate DataType="{x:Type viewModel:VentasLocalesViewModel}">
+                <viewVentasLocales:VentasLocalesView/>
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type viewModel:SubastasViewModel}">

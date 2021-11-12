@@ -1,0 +1,113 @@
+﻿<Window x:Class="FeriaVirtualApp.Views.VentasExternas.SubastarView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:validations="clr-namespace:FeriaVirtualApp.Validations"
+        mc:Ignorable="d" 
+        Height="500" Width="600"
+        ResizeMode="NoResize"
+        WindowStyle="SingleBorderWindow"
+        Background="#272537" 
+        WindowStartupLocation="CenterScreen"
+        Closing="Window_Closing">
+    <Border >
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                <GradientStop Color="#5bc3ff" Offset="0.0"/>
+                <GradientStop Color="#3AA0FF" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
+        <Border.Clip>
+            <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0, 0, 600, 500"/>
+        </Border.Clip>
+
+        <Grid Margin="0, 0, 0, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <TextBlock x:Name="txtTitulo"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Foreground="White"
+                           FontSize="30"
+                           Margin="10"
+                           TextDecorations="Underline"
+                           FontWeight="Bold"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Margin="10" 
+                        Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                        HorizontalAlignment="Center">
+                <Label Content="Id Venta: " FontSize="18" Width="80" Height="150" Foreground="White"/>
+                <TextBox FontSize="16" Width="150" Height="30" Foreground="White" x:Name="txtIdVentaExterna" Cursor="IBeam" IsEnabled="False">
+                    <TextBox.Text>
+                        <Binding Path="idVentaExterna" UpdateSourceTrigger="PropertyChanged">
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10" 
+                        Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                        HorizontalAlignment="Center">
+                <Label Content="Fecha Termino: " FontSize="18" Width="150" Height="30" Foreground="White"/>
+                <DatePicker FontSize="16" Width="150" Height="30" Foreground="White" x:Name="dpFechaTermino">
+
+                </DatePicker>
+                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" 
+                        Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                        HorizontalAlignment="Center">
+                <Label Content="Tipo Refrigerante: " FontSize="18" Width="150" Height="30" Foreground="White"/>
+                <ComboBox Width="125" Height="30" 
+                          ItemsSource="{Binding Path=tpRefrigerantes}"
+                          SelectedIndex="0"
+                          SelectedValuePath="idTipoRefrigerante"
+                          DisplayMemberPath="descripcion"
+                          x:Name="cbTipoRefrigerante">
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10" 
+                        Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                        HorizontalAlignment="Center">
+                <Label Content="Tipo Transporte: " FontSize="18" Width="150" Height="30" Foreground="White"/>
+                <ComboBox Width="125" Height="30" 
+                          ItemsSource="{Binding Path=tpTransportes}"
+                          SelectedIndex="0"
+                          SelectedValuePath="idTipoTransporte"
+                          DisplayMemberPath="descripcion"
+                          x:Name="cbTipoTransporte">
+                    
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10" 
+                        Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                        HorizontalAlignment="Center">
+                <Button x:Name="btnGuardar"                        
+                        Click="btnSubastar_Click"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

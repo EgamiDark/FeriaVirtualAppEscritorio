@@ -55,26 +55,19 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding ProductosViewCommand}"/>
 
-                <RadioButton Content="Ventas"
+                <RadioButton Content="Ventas Externas"
                              Height="50"
                              Foreground="White"
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding VentasViewCommand}"/>
+                             Command="{Binding VentasExternasViewCommand}"/>
 
-                <RadioButton Content="Reportes"
+                <RadioButton Content="Ventas Locales"
                              Height="50"
                              Foreground="White"
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding ReportesViewCommand}"/>
-
-                <RadioButton Content="Transportistas"
-                             Height="50"
-                             Foreground="White"
-                             FontSize="18"
-                             Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding TransportistaViewCommand}"/>
+                             Command="{Binding VentasLocalesViewCommand}"/>
 
                 <RadioButton Content="Subastas"
                              Height="50"
@@ -82,6 +75,7 @@
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding SubastasViewCommand}"/>
+
             </StackPanel>
 
             <TextBox Width="250"

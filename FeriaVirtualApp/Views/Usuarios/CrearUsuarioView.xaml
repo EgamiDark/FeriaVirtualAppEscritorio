@@ -60,10 +60,7 @@
                 <TextBox FontSize="16" Width="150" Height="30" Foreground="White" x:Name="txtRut" Cursor="IBeam">
                     <TextBox.Text>
                         <Binding Path="rut" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <validations:RutValidationRule
-                                    ErrorMessage="Ingrese un formato correcto para el rut"/>
-                            </Binding.ValidationRules>
+                            
                         </Binding>
                     </TextBox.Text>
                 </TextBox>

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\matig\Documents\GitHub\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debug\net5.0-windows\
+C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debug\net5.0-windows\
 FeriaVirtualApp
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-C:\Users\matig\Documents\GitHub\FeriaVirtualAppEscritorio\FeriaVirtualApp\App.xaml
+C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\App.xaml
 15485500211
 
 40-652597370
-1961604981712
+196-1749360994
 MainWindow.xaml;Themes\MenuButtonTheme.xaml;Themes\TextboxTheme.xaml;Views\HomeView.xaml;Views\Productos\CrearProductoView.xaml;Views\Productos\ProductosView.xaml;Views\Subastas\ModificarSubastaView.xaml;Views\Subastas\OfertasView.xaml;Views\Subastas\SubastasView.xaml;Views\Usuarios\CrearUsuarioView.xaml;Views\Usuarios\UsuariosView.xaml;Views\VentasExternas\SubastarView.xaml;Views\VentasExternas\VentasExternasView.xaml;Views\VentasLocales\SubastarView.xaml;Views\VentasLocales\VentasLocalesView.xaml;
 
-True
+False
 

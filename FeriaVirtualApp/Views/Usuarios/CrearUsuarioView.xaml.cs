@@ -59,9 +59,17 @@ namespace FeriaVirtualApp.Views.Usuarios
                                     if (!Validation.GetHasError(txtTelefono))
                                     {
                                         UVM.actividad = actividad.IsChecked.Value;
-                                        await UVM.GuAcUsuario();
-                                        MessageBox.Show("Usuario guardado!");
-                                        Close();
+                                        string mensajeMetodo = await UVM.GuAcUsuario();
+
+                                        if (mensajeMetodo == "Usuario ya existe!")
+                                        {
+                                            MessageBox.Show(mensajeMetodo);
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show(mensajeMetodo);
+                                            Close();
+                                        }
                                     }
                                 }
                             }

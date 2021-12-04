@@ -53,7 +53,7 @@ namespace FeriaVirtualApp {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.11.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.9.0")]
         public void InitializeComponent() {
             if (_contentLoaded) {
                 return;
@@ -79,7 +79,7 @@ namespace FeriaVirtualApp {
         /// </summary>
         [System.STAThreadAttribute()]
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.11.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.9.0")]
         public static void Main() {
             FeriaVirtualApp.App app = new FeriaVirtualApp.App();
             app.InitializeComponent();

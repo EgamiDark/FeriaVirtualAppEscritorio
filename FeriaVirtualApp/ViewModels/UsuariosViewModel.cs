@@ -202,7 +202,7 @@ namespace FeriaVirtualApp.ViewModels
         // Metodo para guardar y actualizar usuario
         // Gu => Guardar
         // Ac => Actualizar
-        public async Task GuAcUsuario()
+        public async Task<string> GuAcUsuario()
         {
             StringContent data;
             Usuario usuario = new();
@@ -238,20 +238,37 @@ namespace FeriaVirtualApp.ViewModels
                     }
                     else
                     {
-                        string json = JsonConvert.SerializeObject(usuario);
-                        data = new(json, Encoding.UTF8, "application/json");
+                        string url = "http://localhost:5000/api/auth/validarEmail/" + usuario.email;
+                        HttpResponseMessage res = await client.GetAsync(url);
+                        HttpContent content = res.Content;
+                        string dataa = await content.ReadAsStringAsync();
+                        JObject dataObj = JObject.Parse(dataa);
 
-                        HttpResponseMessage response = await client
-                            .PostAsync("http://localhost:5000/api/auth/registro", data);
-                        HttpStatusCode codeStatus = response.StatusCode;
+                        string success = dataObj["success"].ToString();
+
+                        if (success == "True")
+                        {
+                            return "Usuario ya existe!";
+                        }
+                        else
+                        {
+                            string json = JsonConvert.SerializeObject(usuario);
+                            data = new(json, Encoding.UTF8, "application/json");
+
+                            HttpResponseMessage response = await client
+                                .PostAsync("http://localhost:5000/api/auth/registro", data);
+                            HttpStatusCode codeStatus = response.StatusCode;
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                return ex.Message;
             }
-            return;
+
+            return "Registro completado con exito!";
         }
 
         // Obtiene todos los usuarios del sistema

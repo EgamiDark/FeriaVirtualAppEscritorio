@@ -9,7 +9,6 @@ namespace FeriaVirtualApp.Models
     public class OfertaTrans
     {
         public int precioOferta { get; set; }
-        public int cantidadTransporte { get; set; }
         public string fechaEntrega { get; set; }
         public string estadoOferta { get; set; }
 

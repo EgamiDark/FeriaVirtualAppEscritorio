@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Margin="0,0,-160,-216">
@@ -68,28 +69,36 @@
                             <DataGridTemplateColumn Header="Ofertas">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Content="(o)" x:Name="btnVerOfertas" Click="btnVerOfertas_Click"/>
+                                        <Button ToolTip="Ver Ofertas" x:Name="btnVerOfertas" Click="btnVerOfertas_Click">
+                                            <materialDesign:PackIcon Kind="Eye" FontSize="18" Height="27" Width="40" VerticalAlignment="Center" />    
+                                        </Button>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                             <DataGridTemplateColumn Header="Actualizar">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Content="*" x:Name="btnActualizar" Click="btnActualizar_Click"/>
+                                        <Button ToolTip="Modificar" x:Name="btnActualizar" Click="btnActualizar_Click">
+                                            <materialDesign:PackIcon Kind="Pencil" FontSize="18" Height="27" Width="40" VerticalAlignment="Center" />
+                                        </Button>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                             <DataGridTemplateColumn Header="Terminar">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Content="-" x:Name="btnTerminar" Click="btnTerminar_Click"/>
+                                        <Button ToolTip="Terminar Oferta" x:Name="btnTerminar" Click="btnTerminar_Click">
+                                            <materialDesign:PackIcon Kind="CheckBold" FontSize="18" Height="27" Width="40" VerticalAlignment="Center" />
+                                        </Button>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                             <DataGridTemplateColumn Header="Cancelar">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Content="-" x:Name="btnCancelar" Click="btnCancelar_Click"/>
+                                        <Button ToolTip="Cancelar Oferta" x:Name="btnCancelar" Click="btnCancelar_Click">
+                                            <materialDesign:PackIcon Kind="CloseCircle" FontSize="18" Height="27" Width="40" VerticalAlignment="Center" />
+                                        </Button>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>

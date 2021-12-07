@@ -46,7 +46,6 @@
                               IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Precio Oferta" Binding="{Binding precioOferta}" FontSize="16" Width="*" />
-                    <DataGridTextColumn Header="Cantidad a transportar" Binding="{Binding cantidadTransporte}" FontSize="16" Width="*" />
                     <DataGridTextColumn Header="Fecha Entrega aprox." Binding="{Binding fechaEntrega}" FontSize="16" Width="*" />
                     <DataGridTextColumn Header="Estado" Binding="{Binding estadoOferta}" FontSize="16" Width="*" />
                 </DataGrid.Columns>

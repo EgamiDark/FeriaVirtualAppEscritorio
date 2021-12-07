@@ -23,6 +23,7 @@ namespace FeriaVirtualApp.Views.Subastas
     public partial class SubastasView : UserControl
     {
         private SubastasViewModel SVM;
+        private int cantOfertas=0;
         public SubastasView()
         {
             InitializeComponent();
@@ -50,41 +51,82 @@ namespace FeriaVirtualApp.Views.Subastas
             
         }
 
-        private void btnActualizar_Click(object sender, RoutedEventArgs e)
+        private async void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
             SubastasTrans subasta = dgSubastas.SelectedItem as SubastasTrans;
-            ModificarSubastaView modificarSubastaView = new ModificarSubastaView(subasta.idSubastaTrans);
-            modificarSubastaView.ShowDialog();
-            modificarSubastaView.Closing += (o, s) =>
+            try
             {
-                MessageBox.Show("Subasta modificada: " + s);
-            };
+                await ConfirmarOfertas(subasta.idSubastaTrans);
+                if (cantOfertas>0) {
+                    MessageBox.Show("No puede modificar una subasta que ya posee ofertas", "Subasta no modificable");
+                }
+                else
+                {
+                    ModificarSubastaView modificarSubastaView = new ModificarSubastaView(subasta.idSubastaTrans);
+                    modificarSubastaView.ShowDialog();
+                    modificarSubastaView.Closing += (o, s) =>
+                    {
+                        MessageBox.Show("Subasta modificada: " + s);
+                    };
+                }
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error desde la bd");
+                throw;
+            }
+            
             SetValues();
+        }
+
+        private async Task ConfirmarOfertas(int id)
+        {
+            SVM = new SubastasViewModel();
+            var a = await SVM.ObtenerOfertasAsync(id);
+            cantOfertas = a.Count;
         }
 
         private async void btnTerminar_Click(object sender, RoutedEventArgs e)
         {
-            var result =MessageBox.Show("¿Esta seguro que desea terminar esta subasta?","Terminar Subasta", MessageBoxButton.YesNo);
-            if(result.ToString() == "Yes")
+            SubastasTrans subasta = dgSubastas.SelectedItem as SubastasTrans;
+            if(subasta.estadoSubasta == "EN PROCESO")
             {
-                SubastasTrans subasta = dgSubastas.SelectedItem as SubastasTrans;
-                var fechaHoy = String.Format("{0:dd-MM-yyyy}", DateTime.Now);
-                subasta.fechaTermino = fechaHoy;
-                await SVM.TerminarSubasta(subasta);
-                MessageBox.Show("Subasta Terminada");
-                SetValues();
+                var result = MessageBox.Show("¿Esta seguro que desea terminar esta subasta?", "Terminar Subasta", MessageBoxButton.YesNo);
+                if (result.ToString() == "Yes")
+                {
+
+                    var fechaHoy = String.Format("{0:dd-MM-yyyy}", DateTime.Now);
+                    subasta.fechaTermino = fechaHoy;
+                    await SVM.TerminarSubasta(subasta);
+                    MessageBox.Show("Subasta Terminada");
+                    SetValues();
+                }
             }
+            else
+            {
+                MessageBox.Show("Esta Subasta ya ha terminado o ha sido cancelada","Error");
+            }
+            
         }
 
         private async void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
-            var result = MessageBox.Show("¿Esta seguro que desea cancelar esta subasta?", "Cancelar Subasta", MessageBoxButton.YesNo);
-            if (result.ToString() == "Yes")
+            SubastasTrans subasta = dgSubastas.SelectedItem as SubastasTrans;
+            if (subasta.estadoSubasta == "EN PROCESO")
             {
-                SubastasTrans subasta = dgSubastas.SelectedItem as SubastasTrans;
-                await SVM.CancelarSubasta(subasta);
-                MessageBox.Show("Subasta Cancelar");
-                SetValues();
+                var result = MessageBox.Show("¿Esta seguro que desea cancelar esta subasta?", "Cancelar Subasta", MessageBoxButton.YesNo);
+                if (result.ToString() == "Yes")
+                {
+
+                    await SVM.CancelarSubasta(subasta);
+                    MessageBox.Show("Subasta Cancelar");
+                    SetValues();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Esta Subasta ya ha terminado o ha sido cancelada", "Error");
             }
         }
     }

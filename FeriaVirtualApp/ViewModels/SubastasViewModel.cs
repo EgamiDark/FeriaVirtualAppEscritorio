@@ -85,11 +85,9 @@ namespace FeriaVirtualApp.ViewModels
 
                     OfertaTrans oferta = new()
                     {
-                        cantidadTransporte = int.Parse(rows[i][2].ToString()),
-                        fechaEntrega = rows[i][3].ToString(),
+                        fechaEntrega = rows[i][2].ToString(),
                         precioOferta = int.Parse(rows[i][1].ToString()),
-                        estadoOferta = rows[i][17].ToString()
-
+                        estadoOferta = rows[i][16].ToString()
                     };
 
                     ofertasTransFromApi.Add(oferta);

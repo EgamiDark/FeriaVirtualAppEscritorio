@@ -7,6 +7,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\Contratos\ContratosView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Contratos\CrearContratoView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\HomeView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -37,6 +43,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Themes\TextboxTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Contratos\ContratosView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Contratos\CrearContratoView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\HomeView.xaml">

@@ -71,7 +71,8 @@ namespace FeriaVirtualApp.Views.VentasExternas {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/FeriaVirtualApp;component/views/ventasexternas/ventasexternasview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/FeriaVirtualApp_sjwbvyih_wpftmp;component/views/ventasexternas/ventasexternasvie" +
+                    "w.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\VentasExternas\VentasExternasView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

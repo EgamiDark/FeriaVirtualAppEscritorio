@@ -10,6 +10,7 @@ namespace FeriaVirtualApp.ViewModels
         public RelayCommand VentasLocalesViewCommand { get; set; }
         public RelayCommand SubastasViewCommand { get; set; }
         public RelayCommand ProductosViewCommand { get; set; }
+        public RelayCommand ContratosViewCommand { get; set; }
 
         public HomeViewModel HomeVM { get; set; }
         public UsuariosViewModel UsuariosVM { get; set; }
@@ -17,6 +18,7 @@ namespace FeriaVirtualApp.ViewModels
         public VentasLocalesViewModel VentasLocalesVM { get; set; }
         public SubastasViewModel SubastasVM { get; set; }
         public ProductosViewModel ProductosVM { get; set; }
+        public ContratoViewModel ContratosVM { get; set; }
 
         private object _currentView;
 
@@ -38,6 +40,7 @@ namespace FeriaVirtualApp.ViewModels
             VentasLocalesVM = new VentasLocalesViewModel();
             SubastasVM = new SubastasViewModel();
             ProductosVM = new ProductosViewModel();
+            ContratosVM = new ContratoViewModel();
 
             CurrentView = HomeVM;
 
@@ -70,6 +73,11 @@ namespace FeriaVirtualApp.ViewModels
             ProductosViewCommand = new RelayCommand(o =>
             {
                 CurrentView = ProductosVM;
+            });
+
+            ContratosViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = ContratosVM;
             });
         }
     }

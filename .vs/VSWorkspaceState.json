@@ -2,9 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\FeriaVirtualApp",
+    "\\FeriaVirtualApp\\ViewModels",
     "\\FeriaVirtualApp\\Views",
     "\\FeriaVirtualApp\\Views\\Usuarios"
   ],
-  "SelectedNode": "\\FeriaVirtualApp\\Views\\Usuarios\\CrearUsuarioView.xaml",
+  "SelectedNode": "\\FeriaVirtualApp\\Views\\Usuarios\\UsuariosView.xaml",
   "PreviewInSolutionExplorer": false
 }

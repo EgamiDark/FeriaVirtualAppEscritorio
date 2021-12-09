@@ -49,6 +49,7 @@ namespace FeriaVirtualApp.Views.Productos
             {
                 Console.WriteLine(ex.Message);
             }
+
             isActive.IsChecked = producto.isActive;
             PVM = new ProductosViewModel(producto);
             SetValues();

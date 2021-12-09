@@ -101,7 +101,7 @@ namespace FeriaVirtualApp.Views.VentasLocales {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/FeriaVirtualApp;component/views/ventaslocales/subastarview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/FeriaVirtualApp_sjwbvyih_wpftmp;component/views/ventaslocales/subastarview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\VentasLocales\SubastarView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

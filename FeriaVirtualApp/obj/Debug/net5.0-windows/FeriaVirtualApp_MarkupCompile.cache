@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\App.xaml
-15485500211
+171515907310
 
-38-443599034
-196-1749360994
-MainWindow.xaml;Themes\MenuButtonTheme.xaml;Themes\TextboxTheme.xaml;Views\HomeView.xaml;Views\Productos\CrearProductoView.xaml;Views\Productos\ProductosView.xaml;Views\Subastas\ModificarSubastaView.xaml;Views\Subastas\OfertasView.xaml;Views\Subastas\SubastasView.xaml;Views\Usuarios\CrearUsuarioView.xaml;Views\Usuarios\UsuariosView.xaml;Views\VentasExternas\SubastarView.xaml;Views\VentasExternas\VentasExternasView.xaml;Views\VentasLocales\SubastarView.xaml;Views\VentasLocales\VentasLocalesView.xaml;
+42700912173
+199-1111193079
+MainWindow.xaml;Themes\MenuButtonTheme.xaml;Themes\TextboxTheme.xaml;Views\Contratos\ContratosView.xaml;Views\Contratos\CrearContratoView.xaml;Views\HomeView.xaml;Views\Productos\CrearProductoView.xaml;Views\Productos\ProductosView.xaml;Views\Subastas\ModificarSubastaView.xaml;Views\Subastas\OfertasView.xaml;Views\Subastas\SubastasView.xaml;Views\Usuarios\CrearUsuarioView.xaml;Views\Usuarios\UsuariosView.xaml;Views\VentasExternas\SubastarView.xaml;Views\VentasExternas\VentasExternasView.xaml;Views\VentasLocales\SubastarView.xaml;Views\VentasLocales\VentasLocalesView.xaml;
 
 False
 

@@ -117,7 +117,8 @@ namespace FeriaVirtualApp.Views.Subastas {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/FeriaVirtualApp;component/views/subastas/modificarsubastaview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/FeriaVirtualApp_sjwbvyih_wpftmp;component/views/subastas/modificarsubastaview.xa" +
+                    "ml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Subastas\ModificarSubastaView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

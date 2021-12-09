@@ -8,6 +8,7 @@
              xmlns:viewVentasLocales="clr-namespace:FeriaVirtualApp.Views.VentasLocales"
              xmlns:viewSubastas="clr-namespace:FeriaVirtualApp.Views.Subastas"
              xmlns:viewProductos="clr-namespace:FeriaVirtualApp.Views.Productos"
+             xmlns:viewContratos="clr-namespace:FeriaVirtualApp.Views.Contratos"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -42,6 +43,10 @@
 
             <DataTemplate DataType="{x:Type viewModel:SubastasViewModel}">
                 <viewSubastas:SubastasView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ContratoViewModel}">
+                <viewContratos:ContratosView/>
             </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>

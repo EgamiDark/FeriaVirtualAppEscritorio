@@ -76,6 +76,13 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding SubastasViewCommand}"/>
 
+                <RadioButton Content="Contratos"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="18"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding ContratosViewCommand}"/>
+
             </StackPanel>
 
             <TextBox Width="250"

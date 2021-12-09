@@ -133,7 +133,7 @@ namespace FeriaVirtualApp.Views.Usuarios {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/FeriaVirtualApp;component/views/usuarios/crearusuarioview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/FeriaVirtualApp_sjwbvyih_wpftmp;component/views/usuarios/crearusuarioview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Usuarios\CrearUsuarioView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

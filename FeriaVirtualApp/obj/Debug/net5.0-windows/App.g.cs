@@ -54,7 +54,7 @@ namespace FeriaVirtualApp {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.9.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.11.0")]
         public void InitializeComponent() {
             if (_contentLoaded) {
                 return;
@@ -66,7 +66,7 @@ namespace FeriaVirtualApp {
             
             #line default
             #line hidden
-            System.Uri resourceLocater = new System.Uri("/FeriaVirtualApp_sjwbvyih_wpftmp;component/app.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/FeriaVirtualApp;component/app.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\App.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
@@ -80,7 +80,7 @@ namespace FeriaVirtualApp {
         /// </summary>
         [System.STAThreadAttribute()]
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.9.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.11.0")]
         public static void Main() {
             FeriaVirtualApp.App app = new FeriaVirtualApp.App();
             app.InitializeComponent();

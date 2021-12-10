@@ -144,3 +144,9 @@ C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debu
 C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debug\net5.0-windows\FeriaVirtualApp.genruntimeconfig.cache
 C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\bin\Debug\net5.0-windows\Spire.License.dll
 C:\Users\Nicolas\source\repos\FeriaVirtualAppEscritorio\FeriaVirtualApp\bin\Debug\net5.0-windows\Spire.Pdf.dll
+C:\Users\matig\Documents\GitHub\FeriaVirtualAppEscritorio\FeriaVirtualApp\bin\Debug\net5.0-windows\Spire.License.dll
+C:\Users\matig\Documents\GitHub\FeriaVirtualAppEscritorio\FeriaVirtualApp\bin\Debug\net5.0-windows\Spire.Pdf.dll
+C:\Users\matig\Documents\GitHub\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debug\net5.0-windows\Views\Contratos\ContratosView.baml
+C:\Users\matig\Documents\GitHub\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debug\net5.0-windows\Views\Contratos\CrearContratoView.baml
+C:\Users\matig\Documents\GitHub\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debug\net5.0-windows\Views\Contratos\ContratosView.g.cs
+C:\Users\matig\Documents\GitHub\FeriaVirtualAppEscritorio\FeriaVirtualApp\obj\Debug\net5.0-windows\Views\Contratos\CrearContratoView.g.cs

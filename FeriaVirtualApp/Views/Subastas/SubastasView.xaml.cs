@@ -83,6 +83,7 @@ namespace FeriaVirtualApp.Views.Subastas
         private async Task ConfirmarOfertas(int id)
         {
             SVM = new SubastasViewModel();
+            cantOfertas = 0;
             var a = await SVM.ObtenerOfertasAsync(id);
             cantOfertas = a.Count;
         }
@@ -95,11 +96,18 @@ namespace FeriaVirtualApp.Views.Subastas
                 var result = MessageBox.Show("¿Esta seguro que desea terminar esta subasta?", "Terminar Subasta", MessageBoxButton.YesNo);
                 if (result.ToString() == "Yes")
                 {
-
-                    var fechaHoy = String.Format("{0:dd-MM-yyyy}", DateTime.Now);
-                    subasta.fechaTermino = fechaHoy;
-                    await SVM.TerminarSubasta(subasta);
-                    MessageBox.Show("Subasta Terminada");
+                    await ConfirmarOfertas(subasta.idSubastaTrans);
+                    if (cantOfertas == 0)
+                    {
+                        MessageBox.Show("No puede terminar una subasta que no posee ofertas", "Subasta no terminable");
+                    }
+                    else
+                    {
+                        var fechaHoy = String.Format("{0:dd-MM-yyyy}", DateTime.Now);
+                        subasta.fechaTermino = fechaHoy;
+                        await SVM.TerminarSubasta(subasta);
+                        MessageBox.Show("Subasta Terminada");
+                    }
                     SetValues();
                 }
             }

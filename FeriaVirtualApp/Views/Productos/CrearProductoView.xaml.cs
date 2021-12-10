@@ -66,7 +66,13 @@ namespace FeriaVirtualApp.Views.Productos
 
             if (!Validation.GetHasError(txtNombre))
             {
-                PVM.imagen = ObtenerByteImagen();
+                try
+                {
+                    PVM.imagen = ObtenerByteImagen();
+                }
+                catch (Exception)
+                {
+                }
                 PVM.isActive = isActive.IsChecked.Value;
                 await PVM.GuAcProducto();
                 MessageBox.Show("Producto guardado!");
